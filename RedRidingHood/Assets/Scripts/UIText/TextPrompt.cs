@@ -35,24 +35,38 @@ public class TextPrompt : MonoBehaviour
 		void TextInitialize ()
 		{
 				promptTextbox = GetComponent <Text> ();
-				promptTextbox.CrossFadeAlpha (0f, 0.0f, false); //text first appear as faded out
-				promptTextbox.CrossFadeAlpha (1f, fadeInTime, false); //fade in text
-				string promptMessage = "";//retrieve message
-				SetPrompt (promptMessage);
+				promptTextbox.CrossFadeAlpha (0.0f, 0.0f, false); //text first appear as faded out
+				promptTextbox.CrossFadeAlpha (1.0f, fadeInTime, false); //fade in text
+				string promptMessage = RetrievePromptMessage ();
+				SetPromptText (promptMessage);
 		}
 
 		void EventListenerInitializations ()
 		{
+				WordChoices.onSelectWord += UpdateToCompletedSentence;
 		}
 
-		private string GetPrompt ()
+		string GetPromptText ()
 		{
 				return promptTextbox.text;
 		}
 
-		private void SetPrompt (string promptText)
+		void SetPromptText (string promptText)
 		{
 				promptTextbox.text = promptText;
+		}
+		
+		string RetrievePromptMessage ()
+		{
+				string promptString = "i am a __________ promptString";
+				//retrieve from message
+				return promptString;
+		}
+
+		void UpdateToCompletedSentence (WordChoices selectedWord)
+		{
+				string word = selectedWord.GetComponent <Text> ().text;
+				SetPromptText ("i am a " + word + " promptString");
 		}
 
 }
