@@ -9,7 +9,7 @@ public class WordChoices : MonoBehaviour
 		private Text wordTextbox;
 		public float fadeInTime;
 		public float fadeOutTime;
-		private bool collided;
+		private bool textPromptCollision;
 
 		void Start ()
 		{
@@ -66,22 +66,26 @@ public class WordChoices : MonoBehaviour
 
 		void OnMouseDrag ()
 		{
-				if (!collided) {
-						Vector3 point = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-						//point.x = gameObject.transform.position.x;
-						//point.y = gameObject.transform.position.y;
-						point.z = gameObject.transform.position.z;
-						gameObject.transform.position = point;
-				}
+				Vector3 point = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+				//point.x = gameObject.transform.position.x;
+				//point.y = gameObject.transform.position.y;
+				point.z = gameObject.transform.position.z;
+				gameObject.transform.position = point;
 		}
 
 		void OnTriggerEnter2D (Collider2D collission)
 		{
-				Debug.Log ("Collosion detected: " + collission);
-
 				if (collission.gameObject.name == "TextPrompt") {
-						Debug.Log ("Collosion detected");
-						collided = true;
+						//Debug.Log (this + "Collision with " + collission.gameObject.name);			
+						textPromptCollision = true;
+				}
+		}
+
+		void OnMouseUp ()
+		{
+				if (textPromptCollision) {
+						onSelectWord (this);
+						//gameObject.SetActive (false);
 				}
 		}
 }
