@@ -69,4 +69,5 @@ public class TextPrompt : MonoBehaviour
 				SetPromptText ("i am a " + word + " promptString");
 		}
 
+
 }
