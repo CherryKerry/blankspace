@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <prompt>
   <sentence id="1"> <!--Change sprite colour-->
-    <text>Little <blank></blank> Riding Hood is a little girl.</text>
+    <text>Little [hood_colour] Riding Hood is a little girl.</text>
     <options>
       <word next="2">red</word>
       <word next="2">blue</word>
@@ -9,7 +9,7 @@
     </options>
   </sentence>
   <sentence id="2"> <!--Change house object-->
-    <text>She lived in a <blank></blank>.</text>
+    <text>She lived in a [house_type].</text>
     <options>
       <word next="3">cottage</word>
       <word next="3">house</word>
@@ -17,7 +17,7 @@
     </options>
   </sentence>
   <sentence id="3"> <!--Change sky colour-->
-    <text>On a <blank></blank> day, she decided to go and take a walk.</text>
+    <text>On a [blank] day, she decided to go and take a walk.</text>
     <options>
       <word next="4">light</word>
       <word next="4">dark</word>
@@ -25,7 +25,7 @@
     </options>
   </sentence>
   <sentence id="4"> <!--Change antagonist -->
-    <text>She decided to visit her <blank></blank>.</text>
+    <text>She decided to visit her [to_visit].</text>
     <options>
       <word next="5">grandmother</word>
       <word next="5">aunt</word>
@@ -33,12 +33,36 @@
     </options> 
   </sentence>
   <sentence id="5"> <!--Change weapon -->
-    <text>She had some nice <blank></blank> in her basket.</text>
+    <text>She had some nice [weapon] in her basket.</text>
     <options>
-      <word next="">muffins</word>
-      <word next="">apples</word>
-      <word next="">bananas</word>
-    </options>  
+      <word next="6">muffins</word>
+      <word next="6">apples</word>
+      <word next="6">bananas</word>
+    </options>
+  </sentence>
+  <sentence id="6"> <!--Change weapon -->
+    <text>On the way, Little [hood_colour] Riding Hood met a [animal].</text>
+    <options>
+      <word next="7">wolf</word>
+      <word next="7">bear</word>
+      <word next="7">dragon</word>
+    </options>
+  </sentence>
+  <sentence id="7"> <!--Change weapon -->
+    <text>"Hello Mr [animal]!" said Little [hood_colour] Riding Hood. "I'm going to see my [to_visit] behind those [blank]"</text>
+    <options>
+      <word next="8">walls</word>
+      <word next="8">trees</word>
+      <word next="8">hills</word>
+    </options>
+  </sentence>
+  <sentence id="8"> <!--Change weapon -->
+    <text>The [animal] ran to [to_visit]'s place and ate her. He got into [to_visit]'s [blank]</text>
+    <options>
+      <word next="9">kitchen</word>
+      <word next="9">bed</word>
+      <word next="9">clothes</word>
+    </options>
   </sentence>
 </prompt>
  
