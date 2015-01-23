@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<prompt>
+  <sentence id="1"> <!--Change sprite colour-->
+    <text>Little [hood_colour] Riding Hood is a little girl.</text>
+    <options>
+      <word next="2">red</word>
+      <word next="2">blue</word>
+      <word next="2">yellow</word>
+    </options>
+  </sentence>
+  <sentence id="2"> <!--Change house object-->
+    <text>She lived in a [house_type].</text>
+    <options>
+      <word next="3">cottage</word>
+      <word next="3">house</word>
+      <word next="3">mansion</word>
+    </options>
+  </sentence>
+  <sentence id="3"> <!--Change sky colour-->
+    <text>On a [blank] day, she decided to go and take a walk.</text>
+    <options>
+      <word next="4">light</word>
+      <word next="4">dark</word>
+      <word next="4">rainy</word>
+    </options>
+  </sentence>
+  <sentence id="4"> <!--Change antagonist -->
+    <text>She decided to visit her [to_visit].</text>
+    <options>
+      <word next="5">grandmother</word>
+      <word next="5">aunt</word>
+      <word next="5">friend</word>
+    </options> 
+  </sentence>
+  <sentence id="5"> <!--Change weapon -->
+    <text>She had some nice [weapon] in her basket.</text>
+    <options>
+      <word next="6">kiwifruit</word>
+      <word next="6">pineapple lump</word>
+      <word next="6">pavlova</word>
+    </options>
+  </sentence>
+  <sentence id="6"> <!--Change animal -->
+    <text>On the way, Little [hood_colour] Riding Hood met a [animal].</text>
+    <options>
+      <word next="7">wolf</word>
+      <word next="7">taniwha</word>
+      <word next="7">dragon</word>
+    </options>
+  </sentence>
+  <sentence id="7"> <!--Change blocker, might branch to different scenes-->
+    <text>"Hello Mr [animal]!" said Little [hood_colour] Riding Hood. "I'm going to see my [to_visit] behind those [blank]"</text>
+    <options>
+      <word next="8">walls</word>
+      <word next="8">trees</word>
+      <word next="8">hills</word>
+    </options>
+  </sentence>
+  <sentence id="8"> <!--Change animal location, might branch to different scenes -->
+    <text>The [animal] ran to [to_visit]'s place and ate her. He got into [to_visit]'s [blank]. Little [hood_colour] Riding Hood arrived shortly after.</text>
+    <options>
+      <word next="9">kitchen</word>
+      <word next="9">bed</word>
+      <word next="9">clothes</word>
+    </options>
+  </sentence>
+  <sentence id="9"> <!--Change body part, need to implement matching mechanics -->
+    <text>"[to_visit], what big [body_part] you have!"</text>
+    <options>
+      <word next="10">eyes</word>
+      <word next="10">hands</word>
+      <word next="10">teeth</word>
+    </options>
+  </sentence>
+  <sentence id="10"> <!--Change response according to body part chosen previously, need to implement matching mechanics -->
+    <text>"All the better to [action] you with!" said the [to_visit]</text>
+    <options>
+      <word next="11">see</word>
+      <word next="11">catch</word>
+      <word next="11">eat</word>
+    </options>
+  </sentence> <!--Sentence 9 and 10 can be repeated until "teeth" and "eat" has been prompted, then the story continues-->
+  <sentence id="11"> <!--Change saviour -->
+    <text>A [saviour] passed by and saved Little [hood_colour] Riding Hood</text>
+    <options>
+      <word next="12">lumberjack</word>
+      <word next="12">hunter</word>
+      <word next="12">fisherman</word>
+    </options>
+  </sentence>
+  <sentence id="12"> <!--Change attack -->
+    <text>The [saviour] [blank] the [animal]. The [animal] opened his mouth and [to_visit] jumped out.</text>
+    <options>
+      <word next="13">hit</word>
+      <word next="13">kicked</word>
+      <word next="13">shot</word>
+    </options>
+  </sentence>   
+  <sentence id="13"> <!--Change attack -->
+    <text>The [animal] ran away and Little [hood_colour] Riding Hood never saw the [animal] again. She decided that it was a [blank] day after all.</text>
+    <options>
+      <word next="">great</word>
+      <word next="">bad</word>
+      <word next="">fun</word>
+    </options>
+  </sentence>  
+</prompt>
+ 
