@@ -1,49 +1,44 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <prompt>
-  <sentence id="1">
-    <text>Little <blank></blank> Riding Hood is a little girl.
+  <sentence id="1"> <!--Change sprite colour-->
+    <text>Little <blank></blank> Riding Hood is a little girl.</text>
     <options>
       <word next="2">red</word>
       <word next="2">blue</word>
       <word next="2">yellow</word>
     </options>
-    </text>
   </sentence>
-  <sentence id="2">
-    <text>She lived in a <blank></blank>.
+  <sentence id="2"> <!--Change house object-->
+    <text>She lived in a <blank></blank>.</text>
     <options>
       <word next="3">cottage</word>
       <word next="3">house</word>
       <word next="3">mansion</word>
     </options>
-    </text>
   </sentence>
-  <sentence id="3">
-    <text>On a <blank></blank> day, she decided to go and take a walk.
+  <sentence id="3"> <!--Change sky colour-->
+    <text>On a <blank></blank> day, she decided to go and take a walk.</text>
     <options>
       <word next="4">light</word>
       <word next="4">dark</word>
       <word next="4">rainy</word>
     </options>
-    </text>
   </sentence>
-  <sentence id="4">
-    <text>She decided to visit her <blank></blank>.
+  <sentence id="4"> <!--Change antagonist -->
+    <text>She decided to visit her <blank></blank>.</text>
     <options>
       <word next="5">grandmother</word>
       <word next="5">aunt</word>
       <word next="5">friend</word>
-    </options>
-    </text>
+    </options> 
   </sentence>
-  <sentence id="5">
-    <text>She had some nice <blank></blank> in her basket.
+  <sentence id="5"> <!--Change weapon -->
+    <text>She had some nice <blank></blank> in her basket.</text>
     <options>
       <word next="">muffins</word>
       <word next="">apples</word>
       <word next="">bananas</word>
-    </options>
-    </text>
+    </options>  
   </sentence>
 </prompt>
  
