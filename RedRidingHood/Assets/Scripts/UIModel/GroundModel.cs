@@ -3,7 +3,6 @@ using System.Collections;
 
 public class GroundModel : EnvironmentModel
 {
-
 	public class GroundColor : EnvironmentColor
 	{
 		public GroundColor() 
