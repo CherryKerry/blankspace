@@ -19,6 +19,7 @@ public class Manager : MonoBehaviour
 	//Keys are '[word]' including [] chars
 	Hashtable keyWords = new Hashtable ();
 	int nextSentance = 1;
+	int interruptedSentance = 0;
 	float waitTime = 0;
 
 	// Use this for initialization
@@ -28,7 +29,7 @@ public class Manager : MonoBehaviour
 		if (instance == null) {
 			instance = this;
 		} else {
-			Debug.LogError("AN INSTANCE OF MANAGER ALREADY EXISTS");
+			Debug.LogError ("AN INSTANCE OF MANAGER ALREADY EXISTS");
 		}
 		WordChoices.DestroyAll ();
 	}
@@ -48,6 +49,8 @@ public class Manager : MonoBehaviour
 		}
 		if (waitTime >= 0) {
 			waitTime -= Time.deltaTime;
+		} else if (nextSentance == 0 && interruptedSentance != 0) {
+			SetNextSentance(interruptedSentance);
 		}
 	}
 
@@ -82,9 +85,19 @@ public class Manager : MonoBehaviour
 		}
 	}
 
+	//Use this to set the next sentance and clears inturrupted sentance
 	public static void SetNextSentance(int index)
 	{
 		instance.waitTime = instance.TIME_TO_WAIT;
+		instance.interruptedSentance = 0;
+		instance.nextSentance = index;
+	}
+
+	//Interrups current sentance and replays the inturrepted sentance once next story is finished
+	public static void SetInterruptSentance(int index)
+	{
+		instance.waitTime = instance.TIME_TO_WAIT/2;
+		instance.interruptedSentance = instance.nextSentance;
 		instance.nextSentance = index;
 	}
 

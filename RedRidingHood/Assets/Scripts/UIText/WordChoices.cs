@@ -13,6 +13,8 @@ public class WordChoices : MonoBehaviour
 
 		public float fadeInTime;
 		public float fadeOutTime;
+	
+		private bool markedForDestruction = false;
 
 		public dragState currentDragState = dragState.nothing;
 		
@@ -29,6 +31,18 @@ public class WordChoices : MonoBehaviour
 		void Update ()
 		{
 				BoxColliderUpdate ();
+				if (markedForDestruction) {
+						fadeOutTime-=Time.deltaTime;
+				}
+				if (fadeOutTime < 0) {
+						Destroy(gameObject);
+				}
+		}
+
+		void OnDisable()
+		{
+			//Debug.LogError("Stopped");
+			Manager.OnEvent -= Manager_OnEvent;
 		}
 
 		void Initializations ()
@@ -36,7 +50,7 @@ public class WordChoices : MonoBehaviour
 				boxCollider = GetComponent <BoxCollider2D> ();
 				TimingInitialize ();
 				TextInitialize ();
-				Manager.OnEvent += this.OnEvent;
+				Manager.OnEvent += this.Manager_OnEvent;
 		}
 	
 		void TimingInitialize ()
@@ -53,6 +67,13 @@ public class WordChoices : MonoBehaviour
 				if (word != null) {
 						SetWordText (word.word);
 				}
+		}
+
+		void DestroyWithFade() 
+		{
+			wordTextbox = GetComponent <Text> ();
+			wordTextbox.CrossFadeAlpha (0.0f, fadeOutTime, false); //fade in text
+			markedForDestruction = true;
 		}
 	
 		void BoxColliderUpdate ()
@@ -142,19 +163,21 @@ public class WordChoices : MonoBehaviour
 				}
 		}
 
-		public void OnEvent (string keyValue, string value)
+		public void Manager_OnEvent (string keyValue, string value)
 		{
-				if (this.gameObject != null) {	
-						Destroy (this.gameObject);
-						Manager.OnEvent -= this.OnEvent;
-				}
+				if (this.gameObject != null && !markedForDestruction) {	
+						if (value == word.word) {
+				Destroy(gameObject);
+						} else {
+							DestroyWithFade();
+						}
+				} 
 		}
 
 		public static void DestroyAll ()
 		{
 				foreach (GameObject word in GameObject.FindGameObjectsWithTag ("Word")) {
 						Destroy (word);
-						Manager.OnEvent -= word.GetComponent<WordChoices> ().OnEvent;
 				}
 		}
 

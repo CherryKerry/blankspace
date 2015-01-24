@@ -7,5 +7,10 @@ public class SkyModel : EnvironmentModel
 	{
 		return new EnvironmentColor();
 	}
+
+	void OnMouseDown()
+	{
+		Debug.LogError ("Mouse toucked the sky");
+	}
 }
 
