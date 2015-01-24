@@ -18,36 +18,30 @@ public class TextPrompt : MonoBehaviour
 
 		void Start ()
 		{
-
 				Initializations ();
 				TextPrompt.instance = this;
 				onCompleteSentence += Manager.SetKeyWord;
 				boxCollider = GetComponent <BoxCollider2D> ();
-
 		}
 	
 		void Update ()
 		{
-				if (promptTextbox.rectTransform.sizeDelta.x > 775) {		
-						float xx = 800;
-						Debug.Log ("width:" + Screen.width);
-						float yy = promptTextbox.rectTransform.sizeDelta.y;
-						promptTextbox.rectTransform.sizeDelta = new Vector2 (xx, yy);
-				}
-				Vector2 temp = promptTextbox.rectTransform.sizeDelta;
+				//if (promptTextbox.rectTransform.sizeDelta.x > 775) {		
+				float xx = 800;
+				//Debug.Log ("width:" + Screen.width);
+				float yy = promptTextbox.rectTransform.sizeDelta.y;
+				promptTextbox.rectTransform.sizeDelta = new Vector2 (xx, yy);
+				//}
+				//Vector2 temp = promptTextbox.rectTransform.sizeDelta;
 				//Debug.Log ("box:" + boxCollider.size);
 				//	Debug.Log ("prompt" + promptTextbox.rectTransform.sizeDelta);
 				boxCollider.size = promptTextbox.rectTransform.sizeDelta;
 				//Debug.Log ("box2:" + boxCollider.transform.position);
 				//Debug.Log ("prompt2" + promptTextbox.rectTransform.localPosition);
 				boxCollider.transform.position = promptTextbox.rectTransform.position;
-				
-
 				float x = promptTextbox.rectTransform.sizeDelta.x / 2;
 				float y = promptTextbox.rectTransform.sizeDelta.y / 2;
 				boxCollider.center = new Vector2 (x, y);
-				
-
 		}
 
 		void Initializations ()
