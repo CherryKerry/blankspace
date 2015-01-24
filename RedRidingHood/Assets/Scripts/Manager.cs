@@ -42,8 +42,9 @@ public class Manager : MonoBehaviour
 			currentSentance = GetSentance (nextSentance);
 			if (currentSentance != null) {
 				TextPrompt.SetSentance (currentSentance);
-				WordChoices.SetWordsTo (currentSentance.words);
-				nextSentance = 0;
+				if (nextSentance == 0) {
+					WordChoices.SetWordsTo (currentSentance.words);
+				}
 			} else {
 				Debug.LogError("Failed to find sentance at index:" + nextSentance);
 			}
@@ -123,12 +124,22 @@ public class Manager : MonoBehaviour
 			foreach (String key in keyWords.Keys) {
 				text = text.Replace (key, (string)keyWords [key]);
 			}
+			//Check for blank words
 			if (text.IndexOf ('[') > 0) {
 				int keyStart = text.IndexOf ('[');
 				int keyLen = text.IndexOf (']') - keyStart + 1;
 				string keyWord = text.Substring (keyStart, keyLen);
 				sentance.keyWord = keyWord;
 				text = text.Replace(keyWord, "_______");
+			}
+			//Check if sentance has been completed
+			if (text.IndexOf ("_______") == -1) {
+				Word word = keyWords[sentance.keyWord] as Word;
+				if (word == null) {
+					word = sentance.words[0] as Word;
+				}
+				nextSentance = word.next;
+				waitTime = TIME_TO_WAIT * 2;
 			}
 			sentance.display = text;
 		}
@@ -183,7 +194,7 @@ public class Manager : MonoBehaviour
 	{
 		public string text;
 		public ArrayList words = new ArrayList ();
-		public string keyWord;
+		public string keyWord = "[blank]";
 		public string display;
 	}
 
