@@ -5,7 +5,7 @@ public class SkyModel : MonoBehaviour
 {
 	static Color light = new Color (255 / 255.0f, 255 / 255.0f, 255 / 255.0f);
 	static Color dark  =  new Color  (200 / 255.0f, 75 / 255.0f, 75 / 255.0f);
-	static Color rainy = new Color (0 / 255.0f, 165 / 255.0f, 153 / 255.0f);
+	static Color rainy = new Color (201 / 255.0f, 184 / 255.0f, 227 / 255.0f);
 	
 	// Use this for initialization
 	void Start ()
