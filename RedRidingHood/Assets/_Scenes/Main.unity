@@ -149,6 +149,7 @@ GameObject:
   - 58: {fileID: 338420499}
   - 50: {fileID: 338420498}
   - 114: {fileID: 338420497}
+  - 114: {fileID: 338420503}
   m_Layer: 0
   m_Name: RedRidingHoodAlpha
   m_TagString: Untagged
@@ -249,6 +250,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &338420503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 338420496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92a8200dc38221a4a81dc03419f44563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterColour: 0
 --- !u!1 &512921606
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,7 +303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: decf9ffde0ea86049b703b19cbbea9fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraFollowPercentage: 90
+  cameraFollowPercentage: 95
+  offset: 8
   isLooping: 1
 --- !u!1 &521470117
 GameObject:
@@ -525,6 +539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraFollowPercentage: 100
+  offset: 0
   isLooping: 0
 --- !u!1 &757446215
 GameObject:
@@ -592,7 +607,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &758781003
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -626,7 +641,7 @@ Transform:
   m_LocalScale: {x: .317442656, y: .317442656, z: .317442656}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
 --- !u!114 &758781005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -639,6 +654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraFollowPercentage: 99
+  offset: 0
   isLooping: 1
 --- !u!1 &819454175
 GameObject:
@@ -743,6 +759,7 @@ GameObject:
   - 114: {fileID: 861941974}
   - 114: {fileID: 861941973}
   - 61: {fileID: 861941972}
+  - 50: {fileID: 861941976}
   m_Layer: 5
   m_Name: Word1
   m_TagString: Word
@@ -794,6 +811,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeInTime: 0
   fadeOutTime: 0
+  currentDragState: 2
 --- !u!114 &861941974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -828,6 +846,22 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 586846486}
   m_GameObject: {fileID: 861941970}
+--- !u!50 &861941976
+Rigidbody2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5092208, guid: 4a149e5c40fe1244a83721e1de3a1014,
+    type: 2}
+  m_PrefabInternal: {fileID: 586846486}
+  m_GameObject: {fileID: 861941970}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 1
+  m_FixedAngle: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
 --- !u!1001 &883887768
 Prefab:
   m_ObjectHideFlags: 0
@@ -1107,7 +1141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1038256723
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1137,11 +1171,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1038256722}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.86999941, y: 7.5, z: .409999996}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 1378320346}
+  m_RootOrder: 0
 --- !u!1 &1179892514
 GameObject:
   m_ObjectHideFlags: 0
@@ -1323,6 +1357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraFollowPercentage: 0
+  offset: 0
   isLooping: 1
 --- !u!1 &1357074687
 GameObject:
@@ -1452,6 +1487,50 @@ RectTransform:
   m_AnchoredPosition: {x: 499, y: -233}
   m_SizeDelta: {x: 840, y: 30}
   m_Pivot: {x: .5, y: .5}
+--- !u!1 &1378320344
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1378320346}
+  - 114: {fileID: 1378320345}
+  m_Layer: 0
+  m_Name: BigClouds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1378320345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1378320344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: decf9ffde0ea86049b703b19cbbea9fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraFollowPercentage: 90
+  offset: 15
+  isLooping: 1
+--- !u!4 &1378320346
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1378320344}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.86999941, y: 7.5, z: .409999996}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1038256724}
+  - {fileID: 1617776176}
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
 --- !u!1 &1562633280
 GameObject:
   m_ObjectHideFlags: 0
@@ -1493,6 +1572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraFollowPercentage: 0
+  offset: 0
   isLooping: 1
 --- !u!1 &1612620470
 GameObject:
@@ -1536,7 +1616,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraFollowPercentage: 50
+  offset: -1
   isLooping: 1
+--- !u!1 &1617776175
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1617776176}
+  - 212: {fileID: 1617776177}
+  m_Layer: 0
+  m_Name: WhiteClouds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1617776176
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1617776175}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.71999931, y: .640000343, z: 0}
+  m_LocalScale: {x: .719355047, y: .719355047, z: .719355047}
+  m_Children: []
+  m_Father: {fileID: 1378320346}
+  m_RootOrder: 1
+--- !u!212 &1617776177
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1617776175}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 631ca7f9b824ae3468a350cdea11385b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1656167569
 GameObject:
   m_ObjectHideFlags: 0
@@ -1549,6 +1680,7 @@ GameObject:
   - 114: {fileID: 1656167573}
   - 114: {fileID: 1656167572}
   - 61: {fileID: 1656167571}
+  - 50: {fileID: 1656167575}
   m_Layer: 5
   m_Name: Word2
   m_TagString: Word
@@ -1600,6 +1732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeInTime: 0
   fadeOutTime: 0
+  currentDragState: 2
 --- !u!114 &1656167573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1634,6 +1767,22 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 920150983}
   m_GameObject: {fileID: 1656167569}
+--- !u!50 &1656167575
+Rigidbody2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5092208, guid: 4a149e5c40fe1244a83721e1de3a1014,
+    type: 2}
+  m_PrefabInternal: {fileID: 920150983}
+  m_GameObject: {fileID: 1656167569}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 1
+  m_FixedAngle: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
 --- !u!1 &1795634923
 GameObject:
   m_ObjectHideFlags: 0

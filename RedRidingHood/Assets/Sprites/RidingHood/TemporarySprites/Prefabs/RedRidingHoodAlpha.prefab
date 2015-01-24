@@ -84,8 +84,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8f2563e2636ec84c9128f7b484243ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalForce: 10
-  redRidingHoodState: 1
+  horizontalForce: 5
+  redRidingHoodState: 0
 --- !u!212 &21214360
 SpriteRenderer:
   m_ObjectHideFlags: 1

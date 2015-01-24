@@ -10,6 +10,7 @@ public class ParallaxController2 : MonoBehaviour
     Vector3 cameraPreviousPosition;
     public float cameraFollowPercentage = 100.0f;
     Vector3 cameraVelocity;
+    public float offset;
 
     public bool isLooping = false;
     //List of object
@@ -71,7 +72,7 @@ public class ParallaxController2 : MonoBehaviour
 
                 // Set the position of the recyled one to be AFTER the last child.
                 // Note: Only work for horizontal scrolling currently.
-                firstChild.position = new Vector3(lastPosition.x + lastSize.x, firstChild.position.y, firstChild.position.z);
+                firstChild.position = new Vector3(lastPosition.x + lastSize.x + offset, firstChild.position.y, firstChild.position.z);
 
                 // Move the recycled child to the last position of the list.
                 loopingObjects.Remove(firstChild);
