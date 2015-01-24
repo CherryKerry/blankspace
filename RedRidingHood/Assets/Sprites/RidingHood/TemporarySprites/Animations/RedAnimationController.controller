@@ -39,6 +39,13 @@ BlendTree:
   m_PrefabInternal: {fileID: 0}
   m_Name: Blend Tree
   m_Childs:
+  - m_Motion: {fileID: 7400000, guid: 84be7ff907227024989c13c8c165722a, type: 2}
+    m_Threshold: -1
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_IsAnim: 1
+    m_Mirror: 0
   - m_Motion: {fileID: 7400000, guid: 9ae292adcfdad1946948cc54588cbd9f, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
@@ -69,7 +76,7 @@ BlendTree:
     m_Mirror: 0
   m_BlendParameter: CHARACTER_COLOUR
   m_BlendParameterY: New Float
-  m_MinThreshold: 0
+  m_MinThreshold: -1
   m_MaxThreshold: 3
   m_UseAutomaticThresholds: 0
   m_BlendType: 0
@@ -80,6 +87,13 @@ BlendTree:
   m_PrefabInternal: {fileID: 0}
   m_Name: Blend Tree
   m_Childs:
+  - m_Motion: {fileID: 7400000, guid: 84be7ff907227024989c13c8c165722a, type: 2}
+    m_Threshold: -1
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_IsAnim: 1
+    m_Mirror: 0
   - m_Motion: {fileID: 7400000, guid: db6f9a91c4ae7f04eb66b6a6c68f35c5, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
@@ -110,7 +124,7 @@ BlendTree:
     m_Mirror: 0
   m_BlendParameter: CHARACTER_COLOUR
   m_BlendParameterY: New Float
-  m_MinThreshold: 0
+  m_MinThreshold: -1
   m_MaxThreshold: 3
   m_UseAutomaticThresholds: 0
   m_BlendType: 0
@@ -215,9 +229,6 @@ StateMachine:
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110209732}
-      second: []
-    data:
       first: {fileID: 110203544}
       second:
       - {fileID: 110156914}
@@ -225,6 +236,9 @@ StateMachine:
       first: {fileID: 110279942}
       second:
       - {fileID: 110156000}
+    data:
+      first: {fileID: 110209732}
+      second: []
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}

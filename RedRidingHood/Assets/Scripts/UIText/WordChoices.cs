@@ -20,6 +20,7 @@ public class WordChoices : MonoBehaviour
 		void Start ()
 		{
 				Initializations ();
+				Manager.OnEvent += this.OnEvent;
 		}
 	
 		void Update ()
@@ -127,10 +128,19 @@ public class WordChoices : MonoBehaviour
 				}
 		}
 
+		public void OnEvent(string keyValue, string value) 
+		{
+			if (this.gameObject != null) {	
+				Destroy (this.gameObject);
+				Manager.OnEvent -= this.OnEvent;
+			}
+		}
+
 		public static void DestroyAll() 
 		{
 			foreach (GameObject word in GameObject.FindGameObjectsWithTag ("Word")) {
 				Destroy (word);
+				Manager.OnEvent -= word.GetComponent<WordChoices>().OnEvent;
 			}
 		}
 		

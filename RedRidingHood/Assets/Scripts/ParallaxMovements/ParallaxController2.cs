@@ -36,7 +36,6 @@ public class ParallaxController2 : MonoBehaviour
                     loopingObjects.Add(child);
                 }
             }
-
             // Sort by position.
             // Note: Get the children from left to right.
             loopingObjects = loopingObjects.OrderBy(

@@ -5,6 +5,11 @@ using System;
 
 public class Manager : MonoBehaviour
 {
+	// keyWord is the word between '[]' inclusive eg "[hood_colour]"
+	// word is the word set by the user
+	public delegate void ManagerEventHandler (string keyWord, string word);
+	public static event ManagerEventHandler OnEvent;
+
 	static Manager instance;
 
 	public float TIME_TO_WAIT = 1.0f;
@@ -25,6 +30,7 @@ public class Manager : MonoBehaviour
 		} else {
 			Debug.LogError("AN INSTANCE OF MANAGER ALREADY EXISTS");
 		}
+		WordChoices.DestroyAll ();
 	}
 	
 	// Update is called once per frame
@@ -56,14 +62,24 @@ public class Manager : MonoBehaviour
 	//Will add or set key word
 	public static void SetKeyWord(Sentance sentance, Word word) 
 	{
-		WordChoices.DestroyAll ();
-		//Send message here!!!!
-		if (instance.keyWords.ContainsKey(sentance.keyWord)) {
-			instance.keyWords[sentance.keyWord] = word.word;
-		} else {
-			instance.keyWords.Add(sentance.keyWord, word.word);
+		if (OnEvent != null) {
+			Debug.Log("Manager.OnEvent key:" + sentance.keyWord + " word:" + word.word);
+			OnEvent (sentance.keyWord, word.word);
 		}
 		SetNextSentance(word.next);
+
+		if (!sentance.keyWord.Equals("[blank]")) {
+			instance.SetKeyWord (sentance.keyWord, word.word);
+		} 
+	}
+
+	void SetKeyWord(string keyWord, string word) 
+	{
+		if (keyWords.ContainsKey(keyWord)) {
+			keyWords[keyWord] = word;
+		} else {
+			keyWords.Add(keyWord, word);
+		}
 	}
 
 	public static void SetNextSentance(int index)

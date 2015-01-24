@@ -48,7 +48,6 @@ public class CharacterController2DRed : MonoBehaviour
         switch (redRidingHoodState)
         {
             case RedRidingHoodState.WALKING:
-                Debug.Log("Walking");
                 rigidbody2D.velocity = new Vector2(horizontalForce, rigidbody2D.velocity.y);
                 break;
             case RedRidingHoodState.IDLE:

@@ -3,9 +3,10 @@
   <sentence id="1"> <!--Change sprite colour-->
     <text>Little [hood_colour] Riding Hood is a little girl.</text>
     <options>
-      <word next="2">red</word>
-      <word next="2">blue</word>
-      <word next="2">yellow</word>
+      <word next="2">Red</word>
+      <word next="2">Blue</word>
+      <word next="2">Green</word>
+      <word next="2">Pink</word>
     </options>
   </sentence>
   <sentence id="2"> <!--Change house object-->
@@ -17,9 +18,9 @@
     </options>
   </sentence>
   <sentence id="3"> <!--Change sky colour-->
-    <text>On a [blank] day, she decided to go and take a walk.</text>
+    <text>On a [sky_colour] day, she decided to go and take a walk.</text>
     <options>
-      <word next="4">light</word>
+      <word next="4">bright</word>
       <word next="4">dark</word>
       <word next="4">rainy</word>
     </options>
@@ -27,17 +28,17 @@
   <sentence id="4"> <!--Change antagonist -->
     <text>She decided to visit her [to_visit].</text>
     <options>
-      <word next="5">grandmother</word>
       <word next="5">aunt</word>
+      <word next="5">grandmother</word>
       <word next="5">friend</word>
     </options> 
   </sentence>
   <sentence id="5"> <!--Change weapon -->
     <text>She had some nice [weapon] in her basket.</text>
     <options>
-      <word next="6">kiwifruit</word>
-      <word next="6">pineapple lump</word>
-      <word next="6">pavlova</word>
+      <word next="6">kiwifruits</word>
+      <word next="6">pineapple lumps</word>
+      <word next="6">pavlovas</word>
     </options>
   </sentence>
   <sentence id="6"> <!--Change animal -->
