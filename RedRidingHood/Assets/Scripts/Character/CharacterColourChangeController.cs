@@ -7,54 +7,60 @@ public class CharacterColourChangeController : MonoBehaviour
 
     private Animator animator;
     private string characterColourAnimParam = "CHARACTER_COLOUR";
-    public CharacterColour characterColour;
 
 	// Use this for initialization
 	void Start ()
 	{
-	    characterColour = CharacterColour.RED;
 	    animator = GetComponent<Animator>();
-        //TODO: Bind to event in Sender.Message += OnEvent(message);
+        animator.SetFloat(characterColourAnimParam, -1.0f);
 	}
 
-    void OnEvent()
+    void OnEnable()
     {
-        /*
-         * 0 - RED
-         * 1 - BLUE
-         * 2 - GREEN
-         * 3 - HOT PINK
-         */
-        switch (characterColour)
-        {
-            case CharacterColour.RED:
-                animator.SetFloat(characterColourAnimParam,0.0f);
-                break;
-            case CharacterColour.BLUE:
-                animator.SetFloat(characterColourAnimParam, 1.0f);
-                break;
-            case CharacterColour.GREEN:
-                animator.SetFloat(characterColourAnimParam, 2.0f);
-                break;
-            case CharacterColour.HOTPINK:
-                animator.SetFloat(characterColourAnimParam, 3.0f);
-                break;
-            default:
-                break;
-        };
+        Manager.OnEvent += Manager_OnEvent;
     }
+
+    void OnDisable()
+    {
+        Manager.OnEvent -= Manager_OnEvent;
+    }
+
+    void Manager_OnEvent(string keyWord, string word)
+    {
+
+        if (keyWord == Constants.HoodColour.Keyword)
+        {
+            Debug.Log(keyWord + ", " + word);
+            /*
+             * 0 - RED
+             * 1 - BLUE
+             * 2 - GREEN
+             * 3 - HOT PINK
+             */
+            switch (word)
+            {
+                case Constants.HoodColour.Red:
+                    animator.SetFloat(characterColourAnimParam, 0.0f);
+                    break;
+                case Constants.HoodColour.Blue:
+                    animator.SetFloat(characterColourAnimParam, 1.0f);
+                    break;
+                case Constants.HoodColour.Green:
+                    animator.SetFloat(characterColourAnimParam, 2.0f);
+                    break;
+                case Constants.HoodColour.HotLink:
+                    animator.SetFloat(characterColourAnimParam, 3.0f);
+                    break;
+                default:
+                    animator.SetFloat(characterColourAnimParam, 0.0f);
+                    break;
+            };  
+        }
+    }
+
 	
 	// Update is called once per frame
 	void Update ()
 	{
-	    OnEvent();
 	}
-}
-
-public enum CharacterColour
-{
-    RED,
-    BLUE,
-    GREEN,
-    HOTPINK
 }

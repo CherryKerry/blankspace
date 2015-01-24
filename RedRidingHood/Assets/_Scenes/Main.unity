@@ -261,7 +261,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92a8200dc38221a4a81dc03419f44563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterColour: 0
 --- !u!1 &512921606
 GameObject:
   m_ObjectHideFlags: 0
@@ -1339,13 +1338,13 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1290923487}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.69999981, y: 0, z: -12.1999998}
+  m_LocalPosition: {x: 7.18000317, y: .970000029, z: -11.8000002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 301880788}
   - {fileID: 521470118}
-  m_Father: {fileID: 1562633281}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
 --- !u!114 &1290923489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1532,49 +1531,6 @@ Transform:
   - {fileID: 1617776176}
   m_Father: {fileID: 0}
   m_RootOrder: 7
---- !u!1 &1562633280
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1562633281}
-  - 114: {fileID: 1562633282}
-  m_Layer: 0
-  m_Name: SuperGround
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1562633281
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1562633280}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.519996643, y: .970000029, z: .399999619}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1290923488}
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
---- !u!114 &1562633282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1562633280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: decf9ffde0ea86049b703b19cbbea9fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraFollowPercentage: 0
-  offset: 0
-  isLooping: 1
 --- !u!1 &1612620470
 GameObject:
   m_ObjectHideFlags: 0
@@ -1616,7 +1572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: decf9ffde0ea86049b703b19cbbea9fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraFollowPercentage: 50
+  cameraFollowPercentage: 60
   offset: -.5
   isLooping: 1
 --- !u!1 &1617776175
