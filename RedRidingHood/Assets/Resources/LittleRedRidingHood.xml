@@ -68,7 +68,6 @@
   <sentence id="9"> <!--Change body part, need to implement matching mechanics -->
     <text>"[to_visit], what big [body_part] you have!"</text>
     <options>
-      <word next="10">eyes</word>
       <word next="10">hands</word>
       <word next="10">teeth</word>
     </options>
@@ -76,12 +75,20 @@
   <sentence id="10"> <!--Change response according to body part chosen previously, need to implement matching mechanics -->
     <text>"All the better to [action] you with!" said the [to_visit]</text>
     <options>
-      <word next="11">see</word>
       <word next="11">catch</word>
       <word next="11">eat</word>
     </options>
   </sentence> <!--Sentence 9 and 10 can be repeated until "teeth" and "eat" has been prompted, then the story continues-->
-  <sentence id="11"> <!--Change saviour -->
+  <sentence id="11"> 
+    <text>Just as the [animal] is about to [action] Little [hood_colour] Riding Hood. [hood_colour] Riding Hood [blank] her gift for [to_visit]. The [weapon] exploded. The [animal] opened his mouth in surprise and [to_visit] jumped out.</text>
+    <options>
+      <word next="13">grabbed</word>
+      <word next="13">triggered</word>
+      <word next="13">opened</word>
+    </options>
+  </sentence>
+
+<!--  <sentence id="11"> (Change saviour )
     <text>A [saviour] passed by and saved Little [hood_colour] Riding Hood</text>
     <options>
       <word next="12">lumberjack</word>
@@ -89,14 +96,14 @@
       <word next="12">fisherman</word>
     </options>
   </sentence>
-  <sentence id="12"> <!--Change attack -->
+  <sentence id="12"> (Change attack )
     <text>The [saviour] [blank] the [animal]. The [animal] opened his mouth and [to_visit] jumped out.</text>
     <options>
       <word next="13">hit</word>
       <word next="13">kicked</word>
       <word next="13">shot</word>
     </options>
-  </sentence>   
+  </sentence>   -->
   <sentence id="13"> <!--Change attack -->
     <text>The [animal] ran away and Little [hood_colour] Riding Hood never saw the [animal] again. She decided that it was a [blank] day after all.</text>
     <options>
