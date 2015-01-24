@@ -47,8 +47,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraController.cs" />
-     <Compile Include="Assets\Scripts\CharacterController2DRed.cs" />
+     <Compile Include="Assets\Scripts\Character\CharacterController2DRed.cs" />
      <Compile Include="Assets\Scripts\ParallaxMovements\ParallaxController.cs" />
+     <Compile Include="Assets\Scripts\ParallaxMovements\ParallaxController2.cs" />
      <Compile Include="Assets\Scripts\ParallaxMovements\RendererExtensions.cs" />
      <Compile Include="Assets\Scripts\ParallaxMovements\Test_CameraConstantMoving.cs" />
      <Compile Include="Assets\Scripts\UIText\TextPrompt.cs" />
