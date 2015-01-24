@@ -20,7 +20,7 @@
   <sentence id="3"> <!--Change sky colour-->
     <text>On a [sky_colour] day, she decided to go and take a walk.</text>
     <options>
-      <word next="4">light</word>
+      <word next="4">bright</word>
       <word next="4">dark</word>
       <word next="4">rainy</word>
     </options>
@@ -28,17 +28,17 @@
   <sentence id="4"> <!--Change antagonist -->
     <text>She decided to visit her [to_visit].</text>
     <options>
-      <word next="5">grandmother</word>
       <word next="5">aunt</word>
+      <word next="5">grandmother</word>
       <word next="5">friend</word>
     </options> 
   </sentence>
   <sentence id="5"> <!--Change weapon -->
     <text>She had some nice [weapon] in her basket.</text>
     <options>
-      <word next="6">kiwifruit</word>
-      <word next="6">pineapple lump</word>
-      <word next="6">pavlova</word>
+      <word next="6">kiwifruits</word>
+      <word next="6">pineapple lumps</word>
+      <word next="6">pavlovas</word>
     </options>
   </sentence>
   <sentence id="6"> <!--Change animal -->
