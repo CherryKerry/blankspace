@@ -7,7 +7,7 @@ public class Manager : MonoBehaviour
 {
 	static Manager instance;
 
-	public static float TIME_TO_WAIT = 0.7;
+	public float TIME_TO_WAIT = 1.0f;
 
 
 	Hashtable sentances = new Hashtable ();
@@ -68,7 +68,7 @@ public class Manager : MonoBehaviour
 
 	public static void SetNextSentance(int index)
 	{
-		instance.waitTime = Manager.TIME_TO_WAIT;
+		instance.waitTime = instance.TIME_TO_WAIT;
 		instance.nextSentance = index;
 	}
 
