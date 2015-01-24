@@ -4,13 +4,14 @@ using System.Collections;
 
 public class WordChoices : MonoBehaviour
 {
-		public delegate void PuddleTapEventHandler (WordChoices selectedWord);
-		public static event PuddleTapEventHandler onSelectWord;
+		public delegate void WordChoicesEventHandler (WordChoices selectedWord);
+		public static event WordChoicesEventHandler onSelectWord;
 		private Text wordTextbox;
 		public float fadeInTime;
 		public float fadeOutTime;
-		private bool textPromptCollision;
-		private Manager.Word word;
+		//private bool textPromptCollision;
+		public dragState currentDragState = dragState.nothing;
+		public Manager.Word word;
 		private Vector2 position;
 
 		static int offset = 50;
@@ -44,7 +45,7 @@ public class WordChoices : MonoBehaviour
 				wordTextbox.CrossFadeAlpha (1.0f, fadeInTime, false); //fade in text
 				//string promptMessage = RetrieveWordChoice ();
 				if (word != null) {
-					SetWordText (word.word);
+						SetWordText (word.word);
 				}
 		}
 
@@ -67,15 +68,13 @@ public class WordChoices : MonoBehaviour
 
 		void OnMouseDown ()
 		{
-				//onSelectWord (this);
-				//Debug.Log ("onSelectWord: " + this);
+				//position = transform.localPosition;
+				currentDragState = dragState.dragged_onto_nothing;
 		}
 
 		void OnMouseDrag ()
 		{
 				Vector3 point = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-				//point.x = gameObject.transform.position.x;
-				//point.y = gameObject.transform.position.y;
 				point.z = gameObject.transform.position.z;
 				gameObject.transform.position = point;
 		}
@@ -84,41 +83,57 @@ public class WordChoices : MonoBehaviour
 		{
 				if (collission.gameObject.name == "TextPrompt") {
 						//Debug.Log (this + "Collision with " + collission.gameObject.name);			
-						textPromptCollision = true;
+						currentDragState = dragState.dragged_onto_prompt;
+				}
+		}
+		void OnTriggerExit2D (Collider2D collission)
+		{
+				if (collission.gameObject.name == "TextPrompt") {
+						currentDragState = dragState.dragged_onto_nothing;
+						//Debug.Log ("Exit " + collision.gameObject.name);
 				}
 		}
 
 		void OnMouseUp ()
 		{
-				if (textPromptCollision) {
+				//Debug.Log ("onMouseup: " + currentDragState);
+				if (currentDragState == dragState.dragged_onto_prompt) {
 						onSelectWord (this);
-						//gameObject.SetActive (false);
+				} else if (currentDragState == dragState.dragged_onto_nothing) {
+						transform.localPosition = position;
+				} else {
+						currentDragState = dragState.nothing;
 				}
 		}
 
-		public static void SetWordsTo(ArrayList words) 
+		public static void SetWordsTo (ArrayList words)
 		{ 
-			foreach (GameObject word in GameObject.FindGameObjectsWithTag ("Word")) {
-				Destroy(word);
-			}
+				foreach (GameObject word in GameObject.FindGameObjectsWithTag ("Word")) {
+						Destroy (word);
+				}
 
-			GameObject container = GameObject.Find("WordContainer");
-			float width = -((RectTransform)container.transform).sizeDelta.x / 2;
+				GameObject container = GameObject.Find ("WordContainer");
+				float width = -((RectTransform)container.transform).sizeDelta.x / 2;
 
-			for (int i = 0; i < words.Count; i++) {
-				Manager.Word word = words[i] as Manager.Word;
+				for (int i = 0; i < words.Count; i++) {
+						Manager.Word word = words [i] as Manager.Word;
 				
-				GameObject gameObject = Instantiate(Resources.Load("Word")) as GameObject;
-				gameObject.transform.SetParent(container.transform);
-				WordChoices choice = gameObject.GetComponent<WordChoices>();
-				choice.word = word;
+						GameObject gameObject = Instantiate (Resources.Load ("Word")) as GameObject;
+						gameObject.transform.SetParent (container.transform);
+						WordChoices choice = gameObject.GetComponent<WordChoices> ();
+						choice.word = word;
 
-				choice.position = new Vector2(width + offset + wordWidth * i, 0);
-				gameObject.transform.localPosition = choice.position;
-				Vector3 scale = new Vector3(1,1,1);
-				gameObject.transform.localScale = scale;
-			}
+						choice.position = new Vector2 (width + offset + wordWidth * i, 0);
+						gameObject.transform.localPosition = choice.position;
+						Vector3 scale = new Vector3 (1, 1, 1);
+						gameObject.transform.localScale = scale;
+				}
 		}
 		
-		
+		public enum dragState
+		{
+				dragged_onto_nothing,
+				dragged_onto_prompt,
+				nothing
+		}
 }

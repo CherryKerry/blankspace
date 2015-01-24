@@ -4,6 +4,8 @@ using System.Collections;
 
 public class TextPrompt : MonoBehaviour
 {
+		public delegate void TextPromptEventHandler (Manager.Word word);
+		public static event TextPromptEventHandler onCompleteSentence;
 
 		private Text promptTextbox;
 		private Manager.Sentance currentSentance;
@@ -42,8 +44,8 @@ public class TextPrompt : MonoBehaviour
 				promptTextbox = GetComponent <Text> ();
 				promptTextbox.CrossFadeAlpha (0.0f, 0.0f, false); //text first appear as faded out
 				promptTextbox.CrossFadeAlpha (1.0f, fadeInTime, false); //fade in text
-				string promptMessage = RetrievePromptMessage ();
-				SetPromptText (promptMessage);
+				//string promptMessage = RetrievePromptMessage ();
+				//SetPromptText (promptMessage);
 		}
 
 		void EventListenerInitializations ()
@@ -56,10 +58,10 @@ public class TextPrompt : MonoBehaviour
 				return promptTextbox.text;
 		}
 
-		public static void SetSentance(Manager.Sentance sentance) 
+		public static void SetSentance (Manager.Sentance sentance)
 		{
-			instance.currentSentance = sentance;
-			instance.SetPromptText (sentance.display);
+				instance.currentSentance = sentance;
+				instance.SetPromptText (sentance.display);
 		}
 
 		void SetPromptText (string promptText)
@@ -67,7 +69,7 @@ public class TextPrompt : MonoBehaviour
 				promptTextbox.text = promptText;
 		}
 		
-		string RetrievePromptMessage ()
+		string RetrievePromptMessage () //not used
 		{
 				string promptString = "i am a __________ promptString";
 				//retrieve from message
@@ -77,7 +79,14 @@ public class TextPrompt : MonoBehaviour
 		void UpdateToCompletedSentence (WordChoices selectedWord)
 		{
 				string word = selectedWord.GetComponent <Text> ().text;
-				SetPromptText ("i am a " + word + " promptString");
+				int start = promptTextbox.text.IndexOf ("_");		
+				int end = promptTextbox.text.LastIndexOf ("_");
+				string firstHalf = promptTextbox.text.Substring (0, start);
+				string secondHalf = promptTextbox.text.Substring (end + 1);
+				//Debug.Log (firstHalf + word + secondHalf);
+				SetPromptText (firstHalf + word + secondHalf);
+				//Debug.Log (selectedWord.word);
+				onCompleteSentence (selectedWord.word);
 		}
 
 
