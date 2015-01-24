@@ -7,12 +7,6 @@ public class PrefabsSpawner : MonoBehaviour {
     //public Transform pHouse;
 
     public Collider2D characterCollider;
-    public Transform GroundLayer;
-
-    void Start()
-    {
-
-    }
 
     void OnEnable ()
     {
@@ -21,11 +15,10 @@ public class PrefabsSpawner : MonoBehaviour {
 
     void Manager_OnEvent(string keyWord, string word)
     {
-        //Debug.Log(keyWord + " " + word);
         if (keyWord == Constants.HouseType.Keyword)
         {
             Vector3 loadPosition = Camera.main.ViewportToWorldPoint(new Vector3(0.8f, 0.8f, 0));
-            loadPosition.z = GroundLayer.transform.position.z;
+            loadPosition.z = 0.2f; //Placing behind character
             Spawn(word, loadPosition);
         }
     }
@@ -35,9 +28,6 @@ public class PrefabsSpawner : MonoBehaviour {
         Manager.OnEvent -= Manager_OnEvent;
     }
 	
-	// Update is called once per frame
-	void Update () {
-	}
 
     void Spawn(string str, Vector3 location)
     {
