@@ -4,7 +4,7 @@ using System.Collections;
 
 public class TextPrompt : MonoBehaviour
 {
-		public delegate void TextPromptEventHandler (Manager.Sentance sentance, Manager.Word word);
+		public delegate void TextPromptEventHandler (Manager.Sentance sentance,Manager.Word word);
 		public static event TextPromptEventHandler onCompleteSentence;
 
 		private Text promptTextbox;
@@ -12,19 +12,42 @@ public class TextPrompt : MonoBehaviour
 
 		public float fadeInTime;
 		public float fadeOutTime;
-
+		private BoxCollider2D boxCollider;
 		static TextPrompt instance;
 		
 
 		void Start ()
 		{
+
 				Initializations ();
 				TextPrompt.instance = this;
 				onCompleteSentence += Manager.SetKeyWord;
+				boxCollider = GetComponent <BoxCollider2D> ();
+
 		}
 	
 		void Update ()
 		{
+				if (promptTextbox.rectTransform.sizeDelta.x > 775) {		
+						float xx = 800;
+						Debug.Log ("width:" + Screen.width);
+						float yy = promptTextbox.rectTransform.sizeDelta.y;
+						promptTextbox.rectTransform.sizeDelta = new Vector2 (xx, yy);
+				}
+				Vector2 temp = promptTextbox.rectTransform.sizeDelta;
+				//Debug.Log ("box:" + boxCollider.size);
+				//	Debug.Log ("prompt" + promptTextbox.rectTransform.sizeDelta);
+				boxCollider.size = promptTextbox.rectTransform.sizeDelta;
+				//Debug.Log ("box2:" + boxCollider.transform.position);
+				//Debug.Log ("prompt2" + promptTextbox.rectTransform.localPosition);
+				boxCollider.transform.position = promptTextbox.rectTransform.position;
+				
+
+				float x = promptTextbox.rectTransform.sizeDelta.x / 2;
+				float y = promptTextbox.rectTransform.sizeDelta.y / 2;
+				boxCollider.center = new Vector2 (x, y);
+				
+
 		}
 
 		void Initializations ()
@@ -45,8 +68,6 @@ public class TextPrompt : MonoBehaviour
 				promptTextbox = GetComponent <Text> ();
 				promptTextbox.CrossFadeAlpha (0.0f, 0.0f, false); //text first appear as faded out
 				promptTextbox.CrossFadeAlpha (1.0f, fadeInTime, false); //fade in text
-				//string promptMessage = RetrievePromptMessage ();
-				//SetPromptText (promptMessage);
 		}
 
 		void EventListenerInitializations ()
@@ -68,13 +89,6 @@ public class TextPrompt : MonoBehaviour
 		void SetPromptText (string promptText)
 		{
 				promptTextbox.text = promptText;
-		}
-		
-		string RetrievePromptMessage () //not used
-		{
-				string promptString = "i am a __________ promptString";
-				//retrieve from message
-				return promptString;
 		}
 
 		void UpdateToCompletedSentence (WordChoices selectedWord)
