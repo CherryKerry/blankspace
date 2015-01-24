@@ -585,6 +585,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 757446217}
   - 212: {fileID: 757446216}
+  - 114: {fileID: 757446218}
   m_Layer: 0
   m_Name: WhiteClouds
   m_TagString: Untagged
@@ -626,6 +627,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 512921607}
   m_RootOrder: 0
+--- !u!114 &757446218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 757446215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aab387b9cd354032a8b2fa92717e925, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &758781002
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,6 +648,7 @@ GameObject:
   - 4: {fileID: 758781004}
   - 212: {fileID: 758781003}
   - 114: {fileID: 758781005}
+  - 114: {fileID: 758781006}
   m_Layer: 0
   m_Name: WhiteClouds
   m_TagString: Untagged
@@ -691,6 +704,17 @@ MonoBehaviour:
   cameraFollowPercentage: 99
   offset: 0
   isLooping: 1
+--- !u!114 &758781006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 758781002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aab387b9cd354032a8b2fa92717e925, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &819454175
 GameObject:
   m_ObjectHideFlags: 0
@@ -1209,6 +1233,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1038256724}
   - 212: {fileID: 1038256723}
+  - 114: {fileID: 1038256725}
   m_Layer: 0
   m_Name: WhiteClouds
   m_TagString: Untagged
@@ -1250,6 +1275,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1378320346}
   m_RootOrder: 0
+--- !u!114 &1038256725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1038256722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aab387b9cd354032a8b2fa92717e925, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1179892514
 GameObject:
   m_ObjectHideFlags: 0
@@ -1718,6 +1754,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1617776176}
   - 212: {fileID: 1617776177}
+  - 114: {fileID: 1617776178}
   m_Layer: 0
   m_Name: WhiteClouds
   m_TagString: Untagged
@@ -1759,6 +1796,17 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 631ca7f9b824ae3468a350cdea11385b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &1617776178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1617776175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aab387b9cd354032a8b2fa92717e925, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1656167569
 GameObject:
   m_ObjectHideFlags: 0
@@ -1898,6 +1946,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1795634925}
   - 212: {fileID: 1795634924}
+  - 114: {fileID: 1795634926}
   m_Layer: 0
   m_Name: WhiteClouds
   m_TagString: Untagged
@@ -1939,3 +1988,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 512921607}
   m_RootOrder: 1
+--- !u!114 &1795634926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1795634923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aab387b9cd354032a8b2fa92717e925, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

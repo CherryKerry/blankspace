@@ -8,7 +8,7 @@ public class CloudModel : EnvironmentModel
 		public CloudColor() 
 		{
 			ColorBright = new Color (255 / 255.0f, 255 / 255.0f, 255 / 255.0f);
-			ColorDark  =  new Color  (200 / 255.0f, 200 / 255.0f, 200 / 255.0f);
+			ColorDark  =  new Color  (100 / 255.0f, 100 / 255.0f, 100 / 255.0f);
 			ColorRainy = new Color (120 / 255.0f, 120 / 255.0f, 120 / 255.0f);
 		}
 	}
