@@ -21,6 +21,7 @@ public class Manager : MonoBehaviour
 	int nextSentance = 1;
 	int interruptedSentance = 0;
 	float waitTime = 0;
+	Sentance currentSentance;
 
 	// Use this for initialization
 	void Start () 
@@ -38,10 +39,10 @@ public class Manager : MonoBehaviour
 	void Update () 
 	{
 		if (nextSentance != (0) && waitTime <= 0) {
-			Sentance sentance = GetSentance (nextSentance);
-			if (sentance != null) {
-				TextPrompt.SetSentance (sentance);
-				WordChoices.SetWordsTo (sentance.words);
+			currentSentance = GetSentance (nextSentance);
+			if (currentSentance != null) {
+				TextPrompt.SetSentance (currentSentance);
+				WordChoices.SetWordsTo (currentSentance.words);
 				nextSentance = 0;
 			} else {
 				Debug.LogError("Failed to find sentance at index:" + nextSentance);
@@ -49,8 +50,6 @@ public class Manager : MonoBehaviour
 		}
 		if (waitTime >= 0) {
 			waitTime -= Time.deltaTime;
-		} else if (nextSentance == 0 && interruptedSentance != 0) {
-			SetNextSentance(interruptedSentance);
 		}
 	}
 
@@ -69,7 +68,12 @@ public class Manager : MonoBehaviour
 			Debug.Log("Manager.OnEvent key:" + sentance.keyWord + " word:" + word.word);
 			OnEvent (sentance.keyWord, word.word);
 		}
-		SetNextSentance(word.next);
+		if (word.next != 0) {
+			SetNextSentance (word.next);
+		} else {
+			SetNextSentance (instance.interruptedSentance);
+			instance.interruptedSentance = 0;
+		}
 
 		if (!sentance.keyWord.Equals("[blank]")) {
 			instance.SetKeyWord (sentance.keyWord, word.word);
@@ -85,12 +89,20 @@ public class Manager : MonoBehaviour
 		}
 	}
 
-	//Use this to set the next sentance and clears inturrupted sentance
+	//Use this to set the next sentance and DOES NOT clears inturrupted sentance
 	public static void SetNextSentance(int index)
+	{
+		instance.waitTime = instance.TIME_TO_WAIT;
+		instance.nextSentance = index;
+	}
+
+	//Use this to set the next sentance and clears inturrupted sentance
+	public static void SetNextSentanceOverride(int index)
 	{
 		instance.waitTime = instance.TIME_TO_WAIT;
 		instance.interruptedSentance = 0;
 		instance.nextSentance = index;
+		Manager.OnEvent (instance.currentSentance.keyWord, null);
 	}
 
 	//Interrups current sentance and replays the inturrepted sentance once next story is finished
@@ -99,6 +111,7 @@ public class Manager : MonoBehaviour
 		instance.waitTime = instance.TIME_TO_WAIT/2;
 		instance.interruptedSentance = instance.nextSentance;
 		instance.nextSentance = index;
+		Manager.OnEvent (instance.currentSentance.keyWord, null);
 	}
 
 	public Sentance GetSentance(int index) 

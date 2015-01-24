@@ -135,8 +135,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 20.4599991, y: 2.55999994}
-  m_Center: {x: 0, y: 0}
+  m_Size: {x: 20.4599991, y: 2.14453745}
+  m_Center: {x: 0, y: -.207731247}
 --- !u!114 &301880790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -440,8 +440,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 20.4599991, y: 2.55999994}
-  m_Center: {x: 0, y: 0}
+  m_Size: {x: 20.4599991, y: 2.14453697}
+  m_Center: {x: 0, y: -.207731202}
 --- !u!114 &521470121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -572,6 +572,7 @@ GameObject:
   - 212: {fileID: 632764819}
   - 114: {fileID: 632764821}
   - 114: {fileID: 632764822}
+  - 61: {fileID: 632764823}
   m_Layer: 0
   m_Name: Sky
   m_TagString: Untagged
@@ -638,6 +639,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d667710ff4314b04ab87713465a3f8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &632764823
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 632764818}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 6.40000057, y: 2.12104845}
+  m_Center: {x: 0, y: 1.33947873}
 --- !u!1 &757446215
 GameObject:
   m_ObjectHideFlags: 0
