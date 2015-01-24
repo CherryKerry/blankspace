@@ -5,6 +5,11 @@ using System;
 
 public class Manager : MonoBehaviour
 {
+	// keyWord is the word between '[]' inclusive eg "[hood_colour]"
+	// word is the word set by the user
+	public delegate void ManagerEventHandler (string keyWord, string word);
+	public static event ManagerEventHandler OnEvent;
+
 	static Manager instance;
 
 	public float TIME_TO_WAIT = 1.0f;
@@ -56,6 +61,10 @@ public class Manager : MonoBehaviour
 	//Will add or set key word
 	public static void SetKeyWord(Sentance sentance, Word word) 
 	{
+		if (OnEvent != null) {
+			Debug.Log("Manager OnEventCall key:" + sentance.keyWord + " word:" + word.word);
+			OnEvent (sentance.keyWord, word.word);
+		}
 		WordChoices.DestroyAll ();
 		//Send message here!!!!
 		if (instance.keyWords.ContainsKey(sentance.keyWord)) {
