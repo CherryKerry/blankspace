@@ -30,7 +30,7 @@ public class CharacterColourChangeController : MonoBehaviour
 
         if (keyWord == Constants.HoodColour.Keyword)
         {
-            Debug.Log(keyWord + ", " + word);
+            //Debug.Log(keyWord + ", " + word);
             /*
              * 0 - RED
              * 1 - BLUE

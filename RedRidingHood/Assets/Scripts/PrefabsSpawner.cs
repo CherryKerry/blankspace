@@ -15,11 +15,22 @@ public class PrefabsSpawner : MonoBehaviour {
 
     void Manager_OnEvent(string keyWord, string word)
     {
-        if (keyWord == Constants.HouseType.Keyword)
+        Debug.Log(keyWord + " " + word);
+        Vector3 loadPosition;
+        switch (keyWord)
         {
-            Vector3 loadPosition = Camera.main.ViewportToWorldPoint(new Vector3(0.8f, 0.8f, 0));
-            loadPosition.z = 0.2f; //Placing behind character
-            Spawn(word, loadPosition);
+            case Constants.HouseType.Keyword:
+                    loadPosition = Camera.main.ViewportToWorldPoint(new Vector3(0.8f, 0.8f, 0));
+                    loadPosition.z = 0.2f; //Placing behind character
+                    Spawn(word, loadPosition);
+                    break;
+            case Constants.AnimalType.Keyword:
+                    loadPosition = Camera.main.ViewportToWorldPoint(new Vector3(0.8f, 0.8f, 0));
+                    loadPosition.z = 0.2f; //Placing behind character
+                    Spawn(word, loadPosition);
+                    break;
+
+
         }
     }
 

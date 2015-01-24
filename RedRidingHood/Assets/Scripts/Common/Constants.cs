@@ -20,4 +20,12 @@ public static class Constants {
         public const string House = "house";
         public const string Mansion = "mansion";
     }
+
+    public class AnimalType
+    {
+        public const string Keyword = "[animal]";
+        public const string Cottage = "Bear";
+        public const string House = "Wolf";
+        public const string Mansion = "Taniwha";
+    }
 }
