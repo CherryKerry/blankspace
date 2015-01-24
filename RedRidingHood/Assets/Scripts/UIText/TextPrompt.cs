@@ -4,7 +4,7 @@ using System.Collections;
 
 public class TextPrompt : MonoBehaviour
 {
-		public delegate void TextPromptEventHandler (Manager.Word word);
+		public delegate void TextPromptEventHandler (Manager.Sentance sentance, Manager.Word word);
 		public static event TextPromptEventHandler onCompleteSentence;
 
 		private Text promptTextbox;
@@ -86,7 +86,7 @@ public class TextPrompt : MonoBehaviour
 				//Debug.Log (firstHalf + word + secondHalf);
 				SetPromptText (firstHalf + word + secondHalf);
 				//Debug.Log (selectedWord.word);
-				onCompleteSentence (selectedWord.word);
+				onCompleteSentence (this.currentSentance, selectedWord.word);
 		}
 
 

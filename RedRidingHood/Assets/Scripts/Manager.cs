@@ -5,24 +5,30 @@ using System;
 
 public class Manager : MonoBehaviour
 {
+	static Manager instance;
 
 	Hashtable sentances = new Hashtable ();
 	//Keys are '[word]' including [] chars
 	Hashtable keyWords = new Hashtable ();
-
 	int nextSentance = 1;
 
 	// Use this for initialization
 	void Start () 
 	{
-		loadXml ();
+		LoadXml ();
+		if (instance == null) {
+			instance = this;
+		} else {
+			Debug.LogError("AN INSTANCE OF MANAGER ALREADY EXISTS");
+		}
+		TextPrompt.onCompleteSentence += SetKeyWord;
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
 		if (nextSentance != (0)) {
-			Sentance sentance = getSentance (nextSentance);
+			Sentance sentance = GetSentance (nextSentance);
 			if (sentance != null) {
 				TextPrompt.SetSentance (sentance);
 				WordChoices.SetWordsTo (sentance.words);
@@ -33,7 +39,32 @@ public class Manager : MonoBehaviour
 		}
 	}
 
-	public Sentance getSentance(int index) 
+	//Remove key word
+	public static void ResetKeyWord(string keyWord) 
+	{
+		if (instance.keyWords.ContainsKey(keyWord)) {
+			instance.keyWords.Remove(keyWord);
+		} 
+	}
+
+	//Will add or set key word
+	public static void SetKeyWord(Sentance sentance, Word word) 
+	{
+		//Send message here!!!!
+		if (instance.keyWords.ContainsKey(sentance.keyWord)) {
+			instance.keyWords[sentance.keyWord] = word.word;
+		} else {
+			instance.keyWords.Add(sentance.keyWord, word.word);
+		}
+		SetNextSentance(word.next);
+	}
+
+	public static void SetNextSentance(int index)
+	{
+		instance.nextSentance = index;
+	}
+
+	public Sentance GetSentance(int index) 
 	{
 		Sentance sentance = (Sentance)sentances [index];
 		if (sentance != null) {
@@ -54,20 +85,22 @@ public class Manager : MonoBehaviour
 		return sentance;
 	}
 
-	private void loadXml () {
+	private void LoadXml () 
+	{
 		string uri = Application.dataPath + "/Resources/LittleRedRidingHood.xml";
 		using (XmlReader reader = XmlReader.Create (uri)) {				
 			Debug.Log("Started Parseing");
 			// Parse the file and display each of the nodes.
 			while (reader.ReadToFollowing ("sentence")) {
 				int index = Convert.ToInt32 (reader.GetAttribute("id"));
-				parseSentance (reader.ReadSubtree (), index);
+				ParseSentance (reader.ReadSubtree (), index);
 			}
 		}
 		Debug.Log ("Finished Parsing");
 	}
 
-	private void parseWords(XmlReader reader, Sentance sentance) {
+	private void ParseWords(XmlReader reader, Sentance sentance) 
+	{
 		Debug.Log ("Words for " + sentance.text);
 		while (reader.ReadToFollowing ("word")) {
 			Word word = new Word ();
@@ -78,7 +111,8 @@ public class Manager : MonoBehaviour
 		}
 	}
 
-	private void parseSentance(XmlReader reader, int index) {
+	private void ParseSentance(XmlReader reader, int index) 
+	{
 		Sentance sentance = new Sentance ();
 		while (reader.Read ()) {
 			if (reader.NodeType == XmlNodeType.Element) {
@@ -86,7 +120,7 @@ public class Manager : MonoBehaviour
 					sentance.text = reader.ReadElementContentAsString ();
 				}
 				if (reader.Name.Equals ("options")) {
-					parseWords(reader.ReadSubtree (), sentance);
+					ParseWords(reader.ReadSubtree (), sentance);
 				}
 			}
 		}
