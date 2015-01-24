@@ -6,17 +6,12 @@ public class PrefabsSpawner : MonoBehaviour {
 
     //public Transform pHouse;
 
-    public GameObject[] blockPrefabs;
-    public Dictionary<string, GameObject> blockTypes;
+    public Collider2D characterCollider;
+    public Transform GroundLayer;
 
     void Start()
     {
-        blockTypes = new Dictionary<string, GameObject>();
 
-        foreach (GameObject prefab in blockPrefabs)
-        {
-            blockTypes[prefab.name] = prefab;
-        }
     }
 
     void OnEnable ()
@@ -26,20 +21,12 @@ public class PrefabsSpawner : MonoBehaviour {
 
     void Manager_OnEvent(string keyWord, string word)
     {
+        //Debug.Log(keyWord + " " + word);
         if (keyWord == Constants.HouseType.Keyword)
         {
-            switch(word)
-            {
-                case Constants.HouseType.Cottage:
-                    GameObject gameObject = Instantiate(Resources.Load("/Prefabs/Cottage")) as GameObject;
-                    Vector3 loadPosition = camera.ViewportToWorldPoint(new Vector3(0.8f, 0.8f, 0));
-                    gameObject.transform.position = loadPosition;
-                    break;
-                case Constants.HouseType.House:
-                    break;
-                case Constants.HouseType.Mansion:
-                    break;
-            }
+            Vector3 loadPosition = Camera.main.ViewportToWorldPoint(new Vector3(0.8f, 0.8f, 0));
+            loadPosition.z = GroundLayer.transform.position.z;
+            Spawn(word, loadPosition);
         }
     }
 
@@ -50,22 +37,15 @@ public class PrefabsSpawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            Spawn("cottage");
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            Spawn("house");
-        }
 	}
 
-    void Spawn(string str)
+    void Spawn(string str, Vector3 location)
     {
-        GameObject prefab = Instantiate(blockTypes[str], new Vector3(Random.Range(-4, 4), Random.Range(-3, 3), 0), Quaternion.identity) as GameObject;
+        GameObject prefab = Instantiate(Resources.Load(str), location, Quaternion.identity) as GameObject;
         prefab.AddComponent<Rigidbody2D>();
         prefab.GetComponent<Rigidbody2D>().gravityScale = 8f;
         prefab.AddComponent<BoxCollider2D>();
+        Physics2D.IgnoreCollision(prefab.GetComponent<BoxCollider2D>(), characterCollider);
     }
 
     public void DeSpawn(string str)

@@ -48,7 +48,7 @@ public class CharacterColourChangeController : MonoBehaviour
                 case Constants.HoodColour.Green:
                     animator.SetFloat(characterColourAnimParam, 2.0f);
                     break;
-                case Constants.HoodColour.HotLink:
+                case Constants.HoodColour.HotPink:
                     animator.SetFloat(characterColourAnimParam, 3.0f);
                     break;
                 default:
