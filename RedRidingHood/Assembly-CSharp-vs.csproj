@@ -46,9 +46,14 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Scripts\CharacterController2DRed.cs" />
      <Compile Include="Assets\Scripts\ParallaxMovements\ParallaxController.cs" />
      <Compile Include="Assets\Scripts\ParallaxMovements\RendererExtensions.cs" />
      <Compile Include="Assets\Scripts\ParallaxMovements\Test_CameraConstantMoving.cs" />
+     <Compile Include="Assets\Scripts\UIText\TextPrompt.cs" />
+     <Compile Include="Assets\Scripts\UIText\WordChoices.cs" />
+     <None Include="Assets\Resource\LittleRedRidingHood.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>
