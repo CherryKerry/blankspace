@@ -11,7 +11,7 @@ public class EnvironmentModel : MonoBehaviour
 
 	void Start ()
 	{
-		Debug.LogError("Env started");
+		//Debug.LogError("Env started");
 		Manager.OnEvent += Manager_OnEvent;
 	}
 	
@@ -24,7 +24,7 @@ public class EnvironmentModel : MonoBehaviour
 	void Update()
 	{
 		if (processTime < color.ColorProcessTime) {
-			Debug.Log("Lerping");
+			//Debug.Log("Lerping");
 			((SpriteRenderer)renderer).color = Color.Lerp(from, to, processTime/color.ColorProcessTime);
 			processTime += Time.deltaTime;
 		}
@@ -32,7 +32,7 @@ public class EnvironmentModel : MonoBehaviour
 	
 	public void Manager_OnEvent(string keyValue, string word) 
 	{
-		Debug.LogError("Event");
+		//Debug.LogError("Event");
 		if (keyValue == color.Keyword) {
 			from = ((SpriteRenderer)renderer).color;
 			if (word == color.Bright) {
