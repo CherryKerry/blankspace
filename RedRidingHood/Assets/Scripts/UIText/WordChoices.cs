@@ -108,10 +108,7 @@ public class WordChoices : MonoBehaviour
 
 		public static void SetWordsTo (ArrayList words)
 		{ 
-				foreach (GameObject word in GameObject.FindGameObjectsWithTag ("Word")) {
-						Destroy (word);
-				}
-
+				DestroyAll ();
 				GameObject container = GameObject.Find ("WordContainer");
 				float width = -((RectTransform)container.transform).sizeDelta.x / 2;
 
@@ -128,6 +125,13 @@ public class WordChoices : MonoBehaviour
 						Vector3 scale = new Vector3 (1, 1, 1);
 						gameObject.transform.localScale = scale;
 				}
+		}
+
+		public static void DestroyAll() 
+		{
+			foreach (GameObject word in GameObject.FindGameObjectsWithTag ("Word")) {
+				Destroy (word);
+			}
 		}
 		
 		public enum dragState

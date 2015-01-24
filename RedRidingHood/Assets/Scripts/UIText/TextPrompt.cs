@@ -20,6 +20,7 @@ public class TextPrompt : MonoBehaviour
 		{
 				Initializations ();
 				TextPrompt.instance = this;
+				onCompleteSentence += Manager.SetKeyWord;
 		}
 	
 		void Update ()

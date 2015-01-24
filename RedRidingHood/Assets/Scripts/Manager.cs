@@ -21,7 +21,6 @@ public class Manager : MonoBehaviour
 		} else {
 			Debug.LogError("AN INSTANCE OF MANAGER ALREADY EXISTS");
 		}
-		TextPrompt.onCompleteSentence += SetKeyWord;
 	}
 	
 	// Update is called once per frame
@@ -50,6 +49,7 @@ public class Manager : MonoBehaviour
 	//Will add or set key word
 	public static void SetKeyWord(Sentance sentance, Word word) 
 	{
+		WordChoices.DestroyAll ();
 		//Send message here!!!!
 		if (instance.keyWords.ContainsKey(sentance.keyWord)) {
 			instance.keyWords[sentance.keyWord] = word.word;
