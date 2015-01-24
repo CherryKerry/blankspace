@@ -7,10 +7,14 @@ public class Manager : MonoBehaviour
 {
 	static Manager instance;
 
+	public static float TIME_TO_WAIT = 0.7;
+
+
 	Hashtable sentances = new Hashtable ();
 	//Keys are '[word]' including [] chars
 	Hashtable keyWords = new Hashtable ();
 	int nextSentance = 1;
+	float waitTime = 0;
 
 	// Use this for initialization
 	void Start () 
@@ -26,7 +30,7 @@ public class Manager : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if (nextSentance != (0)) {
+		if (nextSentance != (0) && waitTime <= 0) {
 			Sentance sentance = GetSentance (nextSentance);
 			if (sentance != null) {
 				TextPrompt.SetSentance (sentance);
@@ -35,6 +39,9 @@ public class Manager : MonoBehaviour
 			} else {
 				Debug.LogError("Failed to find sentance at index:" + nextSentance);
 			}
+		}
+		if (waitTime >= 0) {
+			waitTime -= Time.deltaTime;
 		}
 	}
 
@@ -61,6 +68,7 @@ public class Manager : MonoBehaviour
 
 	public static void SetNextSentance(int index)
 	{
+		instance.waitTime = Manager.TIME_TO_WAIT;
 		instance.nextSentance = index;
 	}
 
