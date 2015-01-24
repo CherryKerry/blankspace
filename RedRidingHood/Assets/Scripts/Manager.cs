@@ -30,6 +30,7 @@ public class Manager : MonoBehaviour
 		} else {
 			Debug.LogError("AN INSTANCE OF MANAGER ALREADY EXISTS");
 		}
+		WordChoices.DestroyAll ();
 	}
 	
 	// Update is called once per frame
@@ -62,17 +63,23 @@ public class Manager : MonoBehaviour
 	public static void SetKeyWord(Sentance sentance, Word word) 
 	{
 		if (OnEvent != null) {
-			Debug.Log("Manager OnEventCall key:" + sentance.keyWord + " word:" + word.word);
+			Debug.Log("Manager.OnEvent key:" + sentance.keyWord + " word:" + word.word);
 			OnEvent (sentance.keyWord, word.word);
 		}
-		WordChoices.DestroyAll ();
-		//Send message here!!!!
-		if (instance.keyWords.ContainsKey(sentance.keyWord)) {
-			instance.keyWords[sentance.keyWord] = word.word;
-		} else {
-			instance.keyWords.Add(sentance.keyWord, word.word);
-		}
 		SetNextSentance(word.next);
+
+		if (!sentance.keyWord.Equals("[blank]")) {
+			instance.SetKeyWord (sentance.keyWord, word.word);
+		} 
+	}
+
+	void SetKeyWord(string keyWord, string word) 
+	{
+		if (keyWords.ContainsKey(keyWord)) {
+			keyWords[keyWord] = word;
+		} else {
+			keyWords.Add(keyWord, word);
+		}
 	}
 
 	public static void SetNextSentance(int index)
