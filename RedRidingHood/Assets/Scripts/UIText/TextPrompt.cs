@@ -57,7 +57,7 @@ public class TextPrompt : MonoBehaviour
 				childGO = this.transform.FindChild ("white");
 				originalSize = childGO.transform.localScale;
 				originalPosition = childGO.transform.localPosition; 
-				Debug.Log (originalPosition);
+//				Debug.Log (originalPosition);
 		}
 
 		void TimingInitialize ()
