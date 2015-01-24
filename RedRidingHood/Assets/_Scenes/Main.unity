@@ -440,11 +440,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22424314, guid: 4a149e5c40fe1244a83721e1de3a1014, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 85.7000122
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22424314, guid: 4a149e5c40fe1244a83721e1de3a1014, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22424314, guid: 4a149e5c40fe1244a83721e1de3a1014, type: 2}
       propertyPath: m_AnchorMin.x
@@ -764,7 +764,7 @@ MonoBehaviour:
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
+  m_DynamicPixelsPerUnit: 3
 --- !u!223 &819454179
 Canvas:
   m_ObjectHideFlags: 0
@@ -795,6 +795,7 @@ GameObject:
   - 114: {fileID: 861941973}
   - 61: {fileID: 861941972}
   - 50: {fileID: 861941976}
+  - 114: {fileID: 861941977}
   m_Layer: 5
   m_Name: Word1
   m_TagString: Word
@@ -818,7 +819,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: .5}
   m_AnchorMax: {x: 0, y: .5}
   m_AnchoredPosition: {x: 50, y: 0}
-  m_SizeDelta: {x: 85.7000122, y: 20}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!61 &861941972
 BoxCollider2D:
@@ -897,6 +898,20 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+--- !u!114 &861941977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11467638, guid: 4a149e5c40fe1244a83721e1de3a1014,
+    type: 2}
+  m_PrefabInternal: {fileID: 586846486}
+  m_GameObject: {fileID: 861941970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1741964061, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 2
 --- !u!1001 &883887768
 Prefab:
   m_ObjectHideFlags: 0
@@ -1006,11 +1021,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22424314, guid: 4a149e5c40fe1244a83721e1de3a1014, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 85.7000122
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22424314, guid: 4a149e5c40fe1244a83721e1de3a1014, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22424314, guid: 4a149e5c40fe1244a83721e1de3a1014, type: 2}
       propertyPath: m_AnchorMin.x
@@ -1601,10 +1616,10 @@ RectTransform:
   - {fileID: 1656167570}
   m_Father: {fileID: 819454176}
   m_RootOrder: 0
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 499, y: -233}
-  m_SizeDelta: {x: 840, y: 30}
+  m_AnchorMin: {x: 0, y: .5}
+  m_AnchorMax: {x: 0, y: .5}
+  m_AnchoredPosition: {x: 896.5, y: -233}
+  m_SizeDelta: {x: 920, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &1378320344
 GameObject:
@@ -1757,6 +1772,7 @@ GameObject:
   - 114: {fileID: 1656167572}
   - 61: {fileID: 1656167571}
   - 50: {fileID: 1656167575}
+  - 114: {fileID: 1656167576}
   m_Layer: 5
   m_Name: Word2
   m_TagString: Word
@@ -1780,7 +1796,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: .5}
   m_AnchorMax: {x: 0, y: .5}
   m_AnchoredPosition: {x: 150, y: 0}
-  m_SizeDelta: {x: 85.7000122, y: 20}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!61 &1656167571
 BoxCollider2D:
@@ -1859,6 +1875,20 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+--- !u!114 &1656167576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11467638, guid: 4a149e5c40fe1244a83721e1de3a1014,
+    type: 2}
+  m_PrefabInternal: {fileID: 920150983}
+  m_GameObject: {fileID: 1656167569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1741964061, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 2
 --- !u!1 &1795634923
 GameObject:
   m_ObjectHideFlags: 0

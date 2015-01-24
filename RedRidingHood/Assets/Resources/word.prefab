@@ -13,6 +13,7 @@ GameObject:
   - 114: {fileID: 11424314}
   - 61: {fileID: 6124314}
   - 50: {fileID: 5092208}
+  - 114: {fileID: 11467638}
   m_Layer: 5
   m_Name: word
   m_TagString: Word
@@ -86,6 +87,19 @@ MonoBehaviour:
   fadeInTime: 0
   fadeOutTime: 0
   currentDragState: 2
+--- !u!114 &11467638
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1741964061, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 2
 --- !u!222 &22224314
 CanvasRenderer:
   m_ObjectHideFlags: 1

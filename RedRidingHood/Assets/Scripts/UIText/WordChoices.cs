@@ -9,10 +9,10 @@ public class WordChoices : MonoBehaviour
 		private Text wordTextbox;
 		public float fadeInTime;
 		public float fadeOutTime;
-		//private bool textPromptCollision;
 		public dragState currentDragState = dragState.nothing;
 		public Manager.Word word;
 		private Vector2 position;
+		private BoxCollider2D boxCollider;
 
 		static int offset = 50;
 		static int wordWidth = 100;
@@ -21,10 +21,17 @@ public class WordChoices : MonoBehaviour
 		{
 				Initializations ();
 				Manager.OnEvent += this.OnEvent;
+				boxCollider = GetComponent <BoxCollider2D> ();
 		}
 	
 		void Update ()
 		{
+				boxCollider.size = wordTextbox.rectTransform.sizeDelta;
+				boxCollider.transform.position = wordTextbox.rectTransform.position;
+		
+				float x = wordTextbox.rectTransform.sizeDelta.x / 8;
+				float y = wordTextbox.rectTransform.sizeDelta.y / 8;
+				boxCollider.center = new Vector2 (x, y);
 		}
 		
 		void Initializations ()
@@ -44,7 +51,6 @@ public class WordChoices : MonoBehaviour
 				wordTextbox = GetComponent <Text> ();
 				wordTextbox.CrossFadeAlpha (0.0f, 0.0f, false); //text first appear as faded out
 				wordTextbox.CrossFadeAlpha (1.0f, fadeInTime, false); //fade in text
-				//string promptMessage = RetrieveWordChoice ();
 				if (word != null) {
 						SetWordText (word.word);
 				}
@@ -60,16 +66,8 @@ public class WordChoices : MonoBehaviour
 				wordTextbox.text = promptText;
 		}
 
-		string RetrieveWordChoice ()
-		{
-				string WordChoice = "beautiful";
-				//retrieve from message
-				return WordChoice;
-		}
-
 		void OnMouseDown ()
 		{
-				//position = transform.localPosition;
 				currentDragState = dragState.dragged_onto_nothing;
 		}
 
@@ -128,20 +126,20 @@ public class WordChoices : MonoBehaviour
 				}
 		}
 
-		public void OnEvent(string keyValue, string value) 
+		public void OnEvent (string keyValue, string value)
 		{
-			if (this.gameObject != null) {	
-				Destroy (this.gameObject);
-				Manager.OnEvent -= this.OnEvent;
-			}
+				if (this.gameObject != null) {	
+						Destroy (this.gameObject);
+						Manager.OnEvent -= this.OnEvent;
+				}
 		}
 
-		public static void DestroyAll() 
+		public static void DestroyAll ()
 		{
-			foreach (GameObject word in GameObject.FindGameObjectsWithTag ("Word")) {
-				Destroy (word);
-				Manager.OnEvent -= word.GetComponent<WordChoices>().OnEvent;
-			}
+				foreach (GameObject word in GameObject.FindGameObjectsWithTag ("Word")) {
+						Destroy (word);
+						Manager.OnEvent -= word.GetComponent<WordChoices> ().OnEvent;
+				}
 		}
 		
 		public enum dragState
