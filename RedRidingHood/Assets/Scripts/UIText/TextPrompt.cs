@@ -6,13 +6,18 @@ public class TextPrompt : MonoBehaviour
 {
 
 		private Text promptTextbox;
+		private Manager.Sentance currentSentance;
 
 		public float fadeInTime;
 		public float fadeOutTime;
 
+		static TextPrompt instance;
+		
+
 		void Start ()
 		{
 				Initializations ();
+				TextPrompt.instance = this;
 		}
 	
 		void Update ()
@@ -49,6 +54,12 @@ public class TextPrompt : MonoBehaviour
 		string GetPromptText ()
 		{
 				return promptTextbox.text;
+		}
+
+		public static void SetSentance(Manager.Sentance sentance) 
+		{
+			instance.currentSentance = sentance;
+			instance.SetPromptText (sentance.display);
 		}
 
 		void SetPromptText (string promptText)

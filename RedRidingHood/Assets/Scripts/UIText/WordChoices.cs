@@ -88,4 +88,14 @@ public class WordChoices : MonoBehaviour
 						//gameObject.SetActive (false);
 				}
 		}
+
+		static void SetWordsTo(ArrayList words) 
+		{
+			Destroy (this.gameObject);
+			foreach (Manager.Word word in words) {
+				
+			}
+		}
+		
+		
 }
