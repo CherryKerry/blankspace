@@ -9,7 +9,11 @@ public class TextPrompt : MonoBehaviour
 
 		private Text promptTextbox;		
 		private BoxCollider2D boxCollider;
-	
+		private Transform childGO;
+
+		private Vector3 originalPosition;
+		private Vector3 originalSize;
+
 		public float fadeInTime;
 		public float fadeOutTime;
 
@@ -50,6 +54,10 @@ public class TextPrompt : MonoBehaviour
 				TextPrompt.instance = this;
 				onCompleteSentence += Manager.SetKeyWord;
 				boxCollider = GetComponent <BoxCollider2D> ();
+				childGO = this.transform.FindChild ("white");
+				originalSize = childGO.transform.localScale;
+				originalPosition = childGO.transform.localPosition; 
+				Debug.Log (originalPosition);
 		}
 
 		void TimingInitialize ()
@@ -84,8 +92,42 @@ public class TextPrompt : MonoBehaviour
 		void SetPromptText (string promptText)
 		{
 				promptTextbox.text = promptText;
-		}
 
+				childGO.transform.localScale = originalSize;
+				childGO.transform.localPosition = originalPosition;
+				//Debug.Log (promptTextbox.text);		
+				//Debug.Log (promptTextbox.text.Length);
+				int length = promptTextbox.text.Length;
+				int times = length / 68;
+				int extra = length % 68;
+				if (times > 1 && extra > 0) {
+						times++;
+				}
+
+				int count = 0;
+				while (times > 0) {
+						times--;
+						//Debug.Log (childGO.transform.localScale.y * 2);
+						float x, y, z;
+						x = childGO.transform.localScale.x;
+		
+						Debug.Log ("RAN 1.8f");
+						y = childGO.transform.localScale.y * 1.8f;
+
+						z = childGO.transform.localScale.z;
+						childGO.transform.localScale = new Vector3 (x, y, z);
+						x = childGO.transform.localPosition.x;
+						y = childGO.transform.localPosition.y - 15;
+						z = childGO.transform.localPosition.z;
+						childGO.transform.localPosition = new Vector3 (x, y, z);
+						//if(count  
+						times--;
+						count++;
+				}
+				promptTextbox.text = promptText;
+
+		}
+	
 		void UpdateToCompletedSentence (WordChoices selectedWord)
 		{
 				string word = selectedWord.GetComponent <Text> ().text;
