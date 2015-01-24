@@ -111,7 +111,7 @@ public class TextPrompt : MonoBehaviour
 						float x, y, z;
 						x = childGO.transform.localScale.x;
 		
-						Debug.Log ("RAN 1.8f");
+						//Debug.Log ("RAN 1.8f");
 						y = childGO.transform.localScale.y * 1.8f;
 
 						z = childGO.transform.localScale.z;
@@ -125,7 +125,15 @@ public class TextPrompt : MonoBehaviour
 						count++;
 				}
 				promptTextbox.text = promptText;
+				if (promptTextbox.text.IndexOf ("opened his mouth in shock and ") > 0) {
+						float x, y, z;
 
+						x = childGO.transform.localPosition.x;
+						y = childGO.transform.localPosition.y - 15;
+						z = childGO.transform.localPosition.z;
+						childGO.transform.localPosition = new Vector3 (x, y, z);
+			
+				}
 		}
 	
 		void UpdateToCompletedSentence (WordChoices selectedWord)
