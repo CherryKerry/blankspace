@@ -119,6 +119,7 @@ public class Manager : MonoBehaviour
 	{
 		Sentance sentance = (Sentance)sentances [index];
 		if (sentance != null) {
+			nextSentance = 0;
 			string text = sentance.text;
 
 			foreach (String key in keyWords.Keys) {
