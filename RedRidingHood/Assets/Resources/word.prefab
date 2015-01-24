@@ -13,7 +13,7 @@ GameObject:
   - 114: {fileID: 11424314}
   - 61: {fileID: 6124314}
   m_Layer: 5
-  m_Name: Word
+  m_Name: word
   m_TagString: Word
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,7 +50,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
