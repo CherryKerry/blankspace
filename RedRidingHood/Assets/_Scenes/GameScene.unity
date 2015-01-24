@@ -575,6 +575,7 @@ GameObject:
   - 114: {fileID: 1439445752}
   - 114: {fileID: 1439445751}
   - 61: {fileID: 1439445750}
+  - 50: {fileID: 1439445754}
   m_Layer: 5
   m_Name: Word2
   m_TagString: Word
@@ -626,6 +627,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeInTime: 0
   fadeOutTime: 0
+  currentDragState: 2
 --- !u!114 &1439445752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -660,6 +662,22 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 145511344}
   m_GameObject: {fileID: 1439445748}
+--- !u!50 &1439445754
+Rigidbody2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5092208, guid: 4a149e5c40fe1244a83721e1de3a1014,
+    type: 2}
+  m_PrefabInternal: {fileID: 145511344}
+  m_GameObject: {fileID: 1439445748}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 1
+  m_FixedAngle: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
 --- !u!1 &1533311491
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,6 +802,7 @@ GameObject:
   - 114: {fileID: 2051688657}
   - 114: {fileID: 2051688656}
   - 61: {fileID: 2051688655}
+  - 50: {fileID: 2051688659}
   m_Layer: 5
   m_Name: Word1
   m_TagString: Word
@@ -835,6 +854,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeInTime: 0
   fadeOutTime: 0
+  currentDragState: 2
 --- !u!114 &2051688657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -869,3 +889,19 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 1286808120}
   m_GameObject: {fileID: 2051688653}
+--- !u!50 &2051688659
+Rigidbody2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5092208, guid: 4a149e5c40fe1244a83721e1de3a1014,
+    type: 2}
+  m_PrefabInternal: {fileID: 1286808120}
+  m_GameObject: {fileID: 2051688653}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 1
+  m_FixedAngle: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0

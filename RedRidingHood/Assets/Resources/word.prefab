@@ -12,6 +12,7 @@ GameObject:
   - 114: {fileID: 11424312}
   - 114: {fileID: 11424314}
   - 61: {fileID: 6124314}
+  - 50: {fileID: 5092208}
   m_Layer: 5
   m_Name: word
   m_TagString: Word
@@ -19,6 +20,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!50 &5092208
+Rigidbody2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124314}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 1
+  m_FixedAngle: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
 --- !u!61 &6124314
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -69,6 +85,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeInTime: 0
   fadeOutTime: 0
+  currentDragState: 2
 --- !u!222 &22224314
 CanvasRenderer:
   m_ObjectHideFlags: 1
