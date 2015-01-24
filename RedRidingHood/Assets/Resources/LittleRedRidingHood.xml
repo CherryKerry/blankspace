@@ -74,7 +74,7 @@
     </options>
   </sentence>
   <sentence id="10"> <!--Change response according to body part chosen previously, need to implement matching mechanics -->
-    <text>"All the better to [action] you with!" said the [to_visit]</text>
+    <text>"All the better to [action] you with!" said the [animal].</text>
     <options>
       <word next="11">catch</word>
       <word next="11">bite</word>
