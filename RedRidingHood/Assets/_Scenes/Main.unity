@@ -84,6 +84,7 @@ GameObject:
   - 4: {fileID: 301880788}
   - 212: {fileID: 301880787}
   - 61: {fileID: 301880789}
+  - 114: {fileID: 301880790}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -136,6 +137,17 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 20.4599991, y: 2.55999994}
   m_Center: {x: 0, y: 0}
+--- !u!114 &301880790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 301880786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d8134f55ca4145daa7ed573cd571aac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &338420496
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,6 +327,7 @@ GameObject:
   - 4: {fileID: 521470118}
   - 212: {fileID: 521470119}
   - 61: {fileID: 521470120}
+  - 114: {fileID: 521470121}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -367,6 +380,17 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 20.4599991, y: 2.55999994}
   m_Center: {x: 0, y: 0}
+--- !u!114 &521470121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 521470117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d8134f55ca4145daa7ed573cd571aac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &586846486
 Prefab:
   m_ObjectHideFlags: 0
@@ -485,6 +509,7 @@ GameObject:
   - 4: {fileID: 632764820}
   - 212: {fileID: 632764819}
   - 114: {fileID: 632764821}
+  - 114: {fileID: 632764822}
   m_Layer: 0
   m_Name: Sky
   m_TagString: Untagged
@@ -540,6 +565,17 @@ MonoBehaviour:
   cameraFollowPercentage: 100
   offset: 0
   isLooping: 0
+--- !u!114 &632764822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 632764818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d667710ff4314b04ab87713465a3f8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &757446215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1034,6 +1070,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 924715953}
   - 212: {fileID: 924715952}
+  - 114: {fileID: 924715951}
   m_Layer: 0
   m_Name: Trees
   m_TagString: Untagged
@@ -1041,6 +1078,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &924715951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 924715950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 119cd4cff6f094c2cb7890946dc44178, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &924715952
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1084,6 +1132,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 999227674}
   - 212: {fileID: 999227673}
+  - 114: {fileID: 999227675}
   m_Layer: 0
   m_Name: Trees
   m_TagString: Untagged
@@ -1125,6 +1174,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1612620471}
   m_RootOrder: 1
+--- !u!114 &999227675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 999227672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 119cd4cff6f094c2cb7890946dc44178, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1038256722
 GameObject:
   m_ObjectHideFlags: 0
