@@ -6,38 +6,37 @@ public class WordChoices : MonoBehaviour
 {
 		public delegate void WordChoicesEventHandler (WordChoices selectedWord);
 		public static event WordChoicesEventHandler onSelectWord;
+
 		private Text wordTextbox;
-		public float fadeInTime;
-		public float fadeOutTime;
-		public dragState currentDragState = dragState.nothing;
-		public Manager.Word word;
 		private Vector2 position;
 		private BoxCollider2D boxCollider;
 
+		public float fadeInTime;
+		public float fadeOutTime;
+
+		public dragState currentDragState = dragState.nothing;
+		
+		public Manager.Word word;
+	
 		static int offset = 50;
 		static int wordWidth = 100;
 
 		void Start ()
 		{
 				Initializations ();
-				Manager.OnEvent += this.OnEvent;
-				boxCollider = GetComponent <BoxCollider2D> ();
 		}
 	
 		void Update ()
 		{
-				boxCollider.size = wordTextbox.rectTransform.sizeDelta;
-				boxCollider.transform.position = wordTextbox.rectTransform.position;
-		
-				float x = wordTextbox.rectTransform.sizeDelta.x / 8;
-				float y = wordTextbox.rectTransform.sizeDelta.y / 8;
-				boxCollider.center = new Vector2 (x, y);
+				BoxColliderUpdate ();
 		}
-		
+
 		void Initializations ()
 		{
+				boxCollider = GetComponent <BoxCollider2D> ();
 				TimingInitialize ();
 				TextInitialize ();
+				Manager.OnEvent += this.OnEvent;
 		}
 	
 		void TimingInitialize ()
@@ -54,6 +53,23 @@ public class WordChoices : MonoBehaviour
 				if (word != null) {
 						SetWordText (word.word);
 				}
+		}
+	
+		void BoxColliderUpdate ()
+		{
+				float x;
+				float y;
+
+				x = wordTextbox.rectTransform.position.x;
+				y = wordTextbox.rectTransform.position.y;
+				boxCollider.transform.position = new Vector2 (x, y);
+
+				x = wordTextbox.rectTransform.sizeDelta.x / 8;
+				y = wordTextbox.rectTransform.sizeDelta.y / 8;
+				boxCollider.center = new Vector2 (x, y);
+
+				boxCollider.size = wordTextbox.rectTransform.sizeDelta;
+
 		}
 
 		public string GetWordText ()
@@ -141,11 +157,29 @@ public class WordChoices : MonoBehaviour
 						Manager.OnEvent -= word.GetComponent<WordChoices> ().OnEvent;
 				}
 		}
-		
+
+		void ColorChanger ()
+		{
+				string check = wordTextbox.text.ToLower ();
+				//Debug.Log (check);
+				if (check == "red") {
+						wordTextbox.color = Color.red;
+				} else if (check == "blue") {
+						wordTextbox.color = Color.blue;
+				} else if (check == "green") {
+						wordTextbox.color = Color.green;
+				} else if (check == "pink") {
+						wordTextbox.color = new Color (253, 246, 250, 1);
+				} else {
+						//Debug.Log ("No " + check);
+				}
+		}	
+
 		public enum dragState
 		{
 				dragged_onto_nothing,
 				dragged_onto_prompt,
 				nothing
 		}
+
 }
