@@ -24,9 +24,9 @@ public static class Constants {
     public class AnimalType
     {
         public const string Keyword = "[animal]";
-        public const string Cottage = "Bear";
-        public const string House = "Wolf";
-        public const string Mansion = "Taniwha";
+        public const string Bear = "Bear";
+        public const string Wolf = "Wolf";
+        public const string Taniwha = "Taniwha";
     }
 
     public class BlankType
@@ -35,5 +35,9 @@ public static class Constants {
         public const string Kitchen = "kitchen";
         public const string Bed = "bed";
         public const string Clothes = "clothes";
+
+        public const string Hills = "hills";
+        public const string Walls = "walls";
+        public const string Trees = "trees";
     }
 }

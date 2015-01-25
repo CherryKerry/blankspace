@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -17,18 +18,21 @@ public class PrefabsSpawner : MonoBehaviour {
     {
         Debug.Log(keyWord + " " + word);
         Vector3 loadPosition;
-        switch (keyWord)
+        if (!String.IsNullOrEmpty(word))
         {
-            case Constants.HouseType.Keyword:
+            switch (keyWord)
+            {
+                case Constants.HouseType.Keyword:
                     loadPosition = Camera.main.ViewportToWorldPoint(new Vector3(0.8f, 0.8f, 0));
                     loadPosition.z = 0.2f; //Placing behind character
                     Spawn(word, loadPosition);
                     break;
-            case Constants.AnimalType.Keyword:
+                case Constants.AnimalType.Keyword:
                     loadPosition = Camera.main.ViewportToWorldPoint(new Vector3(0.8f, 0.8f, 0));
                     loadPosition.z = 0.2f; //Placing behind character
                     Spawn(word, loadPosition);
                     break;
+            }
         }
     }
 

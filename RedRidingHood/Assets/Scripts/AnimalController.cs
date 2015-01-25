@@ -25,7 +25,7 @@ public class AnimalController : MonoBehaviour {
     void Manager_OnEvent(string keyWord, string word)
     {
         Debug.Log(keyWord + " " + word);
-        if (String.IsNullOrEmpty(word))
+        if (!String.IsNullOrEmpty(word))
         {
             switch (keyWord)
             {
@@ -35,9 +35,11 @@ public class AnimalController : MonoBehaviour {
                     break;
                 case Constants.BlankType.Keyword:
                     //Behavior of antagonist
+                    Debug.LogError(word);
                     if (word == Constants.BlankType.Bed || word == Constants.BlankType.Kitchen ||
-                        word == Constants.BlankType.Kitchen)
+                        word == Constants.BlankType.Clothes)
                     {
+                        Debug.Log(word);
                         characterController.StartCharacter();
                         Destroy(this.gameObject);
                     }
