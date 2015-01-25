@@ -41,6 +41,7 @@ public static class Constants
 				public const string Walls = "walls";
 				public const string Trees = "trees";
 
+				//missing prefabs
 				public const string Grabbed = "grabbed";
 				public const string Touched = "touched";
 				public const string Opened = "opened";
@@ -62,7 +63,7 @@ public static class Constants
 		{
 				public const string Keyword = "[weapon]";
 				public const string Kiwifruits = "kiwifruits";
-				public const string Pineapple_Lumps = "pineapple lumps";
+				public const string PineappleLumps = "pineapple lumps";
 				public const string Pavlovas = "pavlovas";
 		}
 	
