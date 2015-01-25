@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <prompt>
   <sentence id="1000"> <!--Change sky colour-->
-    <text>Little [hood_colour] Riding Hood looked up. The sky is becoming [sky_colour]</text>
+    <text>Little [hood_colour] Riding Hood looked up. The sky is becoming [sky_colour].</text>
     <options>
       <word next="1001">bright</word>
       <word next="1002">dark</word>
