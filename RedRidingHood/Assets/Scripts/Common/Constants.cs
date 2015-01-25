@@ -41,7 +41,6 @@ public static class Constants
 				public const string Walls = "walls";
 				public const string Trees = "trees";
 
-				//missing prefabs
 				public const string Grabbed = "grabbed";
 				public const string Touched = "touched";
 				public const string Opened = "opened";

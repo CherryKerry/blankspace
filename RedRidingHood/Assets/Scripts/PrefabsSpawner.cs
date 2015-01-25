@@ -12,6 +12,7 @@ public class PrefabsSpawner : MonoBehaviour
 		private bool trackThought = false;
 		private GameObject prefabTrack;
 		private bool fadeOut = false;
+		public float thoughtTime = 1.2f;
 
 		void OnEnable ()
 		{
@@ -82,7 +83,8 @@ public class PrefabsSpawner : MonoBehaviour
 		{
 				if (trackThought) {
 						TrackThought ();
-						Invoke ("SetFadeOut", 1.2f);
+						//Invoke ("SetFadeOut", 1.2f);
+						Invoke ("DestroyTracker", thoughtTime);
 				}
 				if (fadeOut) {
 						//FadeOut ();
@@ -106,14 +108,11 @@ public class PrefabsSpawner : MonoBehaviour
 		{
 				trackThought = false;
 				fadeOut = false;
-				
 				Destroy (prefabTrack);
-				
 		}
 
 		void TrackThought ()
 		{
-				
 				Vector3 v3 = GameObject.Find ("RedRidingHoodAlpha").transform.position;
 				v3.x = v3.x + 2;
 				v3.y = v3.y + 2;
