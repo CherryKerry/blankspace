@@ -41,7 +41,17 @@ public class CharacterController2DRed : MonoBehaviour
 
     }
 
+    public void StopCharacter()
+    {
+        redRidingHoodState = RedRidingHoodState.IDLE;
+        AnimateMatilda(redRidingHoodState);
+    }
 
+    public void StartCharacter()
+    {
+        redRidingHoodState = RedRidingHoodState.WALKING;
+        AnimateMatilda(redRidingHoodState);
+    }
 
     void MoveRed(RedRidingHoodState redRidingHoodState)
     {

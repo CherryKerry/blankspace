@@ -50,7 +50,7 @@
     </options>
   </sentence>
   <sentence id="7"> <!--Change blocker, might branch to different scenes-->
-    <text>"Hello Mr [animal]!" said Little [hood_colour] Riding Hood. "I'm going to see my [to_visit] behind those [blank]"</text>
+    <text>"Hello Mr [animal]!" said Little [hood_colour] Riding Hood. "I'm going to see my [to_visit] behind those [blank]."</text>
     <options>
       <word next="8">walls</word>
       <word next="8">trees</word>
@@ -82,7 +82,7 @@
     </options>
   </sentence> <!--Sentence 9 and 10 can be repeated until "teeth" and "eat" has been prompted, then the story continues-->
   <sentence id="11"> 
-    <text>Just as the [animal] is about to [action] Little [hood_colour] Riding Hood. She [blank] the gift for her [to_visit]. The [weapon] exploded. The [animal] opened his mouth in shock and [to_visit] jumped out.</text>
+    <text>Just as the [animal] was about to [action] Little [hood_colour] Riding Hood. She [blank] the gift for her [to_visit]. The [weapon] exploded. The [animal] opened his mouth in shock and [to_visit] jumped out.</text>
     <options>
       <word next="13">grabbed</word>
       <word next="13">touched</word>

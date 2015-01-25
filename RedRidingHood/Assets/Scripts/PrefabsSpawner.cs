@@ -29,8 +29,6 @@ public class PrefabsSpawner : MonoBehaviour {
                     loadPosition.z = 0.2f; //Placing behind character
                     Spawn(word, loadPosition);
                     break;
-
-
         }
     }
 
