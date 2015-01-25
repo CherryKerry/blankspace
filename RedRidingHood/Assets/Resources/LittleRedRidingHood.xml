@@ -18,7 +18,7 @@
     </options>
   </sentence>
   <sentence id="3"> <!--Change sky colour-->
-    <text>On a [sky_colour] day, she decided to for a walk.</text>
+    <text>On a [sky_colour] day, she decided to go for a walk.</text>
     <options>
       <word next="4">bright</word>
       <word next="4">dark</word>
