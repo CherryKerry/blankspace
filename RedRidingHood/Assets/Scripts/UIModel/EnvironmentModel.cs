@@ -5,7 +5,7 @@ public abstract class EnvironmentModel : MonoBehaviour
 {
 	public class EnvironmentColor
 	{
-		public int ChangeSentence = 3;
+		public int ChangeSentence = 1000;
 		public string Keyword = "[sky_colour]";
 		public string Bright = "bright";
 		public string Dark = "dark";

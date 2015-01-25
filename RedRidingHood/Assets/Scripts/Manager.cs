@@ -21,7 +21,7 @@ public class Manager : MonoBehaviour
 	int nextSentance = 1;
 	int interruptedSentance = 0;
 	float waitTime = 0;
-	Sentance currentSentance;
+	int currentSentance;
 
 	// Use this for initialization
 	void Start () 
@@ -39,11 +39,11 @@ public class Manager : MonoBehaviour
 	void Update () 
 	{
 		if (nextSentance != (0) && waitTime <= 0) {
-			currentSentance = GetSentance (nextSentance);
-			if (currentSentance != null) {
-				TextPrompt.SetSentance (currentSentance);
+			Sentance sentance = GetSentance (nextSentance);
+			if (sentance != null) {
+				TextPrompt.SetSentance (sentance);
 				if (nextSentance == 0) {
-					WordChoices.SetWordsTo (currentSentance.words);
+					WordChoices.SetWordsTo (sentance.words);
 				}
 			} else {
 				Debug.LogError("Failed to find sentance at index:" + nextSentance);
@@ -72,8 +72,8 @@ public class Manager : MonoBehaviour
 		if (word.next != 0) {
 			SetNextSentance (word.next);
 		} else {
-			SetNextSentance (instance.interruptedSentance);
-			instance.interruptedSentance = 0;
+			//SetNextSentance (instance.interruptedSentance);
+			//instance.interruptedSentance = 0;
 		}
 
 		if (!sentance.keyWord.Equals("[blank]")) {
@@ -103,22 +103,23 @@ public class Manager : MonoBehaviour
 		instance.waitTime = instance.TIME_TO_WAIT;
 		instance.interruptedSentance = 0;
 		instance.nextSentance = index;
-		Manager.OnEvent (instance.currentSentance.keyWord, null);
+		Manager.OnEvent (((Sentance)instance.sentances[instance.currentSentance]).keyWord, null);
 	}
 
 	//Interrups current sentance and replays the inturrepted sentance once next story is finished
 	public static void SetInterruptSentance(int index)
 	{
 		instance.waitTime = instance.TIME_TO_WAIT/2;
-		instance.interruptedSentance = instance.nextSentance;
+		instance.interruptedSentance = instance.currentSentance;
 		instance.nextSentance = index;
-		Manager.OnEvent (instance.currentSentance.keyWord, null);
+		Manager.OnEvent (((Sentance)instance.sentances[instance.currentSentance]).keyWord, null);
 	}
 
 	public Sentance GetSentance(int index) 
 	{
 		Sentance sentance = (Sentance)sentances [index];
 		if (sentance != null) {
+			currentSentance = index;
 			nextSentance = 0;
 			string text = sentance.text;
 
@@ -140,6 +141,10 @@ public class Manager : MonoBehaviour
 					word = sentance.words[0] as Word;
 				}
 				nextSentance = word.next;
+				if (nextSentance == 0) {
+					nextSentance = interruptedSentance;
+					interruptedSentance = 0;
+				}
 				waitTime = TIME_TO_WAIT * 2;
 			}
 			sentance.display = text;
