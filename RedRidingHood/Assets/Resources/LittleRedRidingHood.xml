@@ -1,5 +1,31 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <prompt>
+  <sentence id="1000"> <!--Change sky colour-->
+    <text>Little [hood_colour] Riding Hood looked up. The sky is becoming [sky_colour]</text>
+    <options>
+      <word next="1001">bright</word>
+      <word next="1002">dark</word>
+      <word next="1003">rainy</word>
+    </options>
+  </sentence>
+  <sentence id="1001"> <!--Change sky colour-->
+    <text>What a lovely day it is today.</text>
+    <options>
+      <word next="0">bright</word>
+    </options>
+  </sentence>
+  <sentence id="1002"> <!--Change sky colour-->
+    <text>Oh no, it is dark! Better hurry up.</text>
+    <options>
+      <word next="0">dark</word>
+    </options>
+  </sentence>
+  <sentence id="1003"> <!--Change sky colour-->
+    <text>Little [hood_colour] Riding Hood will get wet from the rain.</text>
+    <options>
+      <word next="0"></word>
+    </options>
+  </sentence>
   <sentence id="1"> <!--Change sprite colour-->
     <text>Little [hood_colour] Riding Hood is a young girl.</text>
     <options>
