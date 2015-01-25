@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 473316}
   - 212: {fileID: 21273316}
+  - 114: {fileID: 11455978}
   m_Layer: 0
   m_Name: Wolf
   m_TagString: Untagged
@@ -28,6 +29,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11455978
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9e983e3d177a5e49a9a7a01c2657c29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21273316
 SpriteRenderer:
   m_ObjectHideFlags: 1

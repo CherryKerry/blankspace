@@ -28,4 +28,12 @@ public static class Constants {
         public const string House = "Wolf";
         public const string Mansion = "Taniwha";
     }
+
+    public class BlankType
+    {
+        public const string Keyword = "[blank]";
+        public const string Kitchen = "kitchen";
+        public const string Bed = "bed";
+        public const string Clothes = "clothes";
+    }
 }
