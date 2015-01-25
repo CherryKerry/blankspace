@@ -50,7 +50,7 @@ public abstract class EnvironmentModel : MonoBehaviour
 	public void Manager_OnEvent(string keyValue, string word) 
 	{
 		//Debug.LogError("Event");
-		if (keyValue == color.Keyword) {
+		if (keyValue == color.Keyword && word != null) {
 			from = ((SpriteRenderer)renderer).color;
 			if (word == color.Bright) {
 				to = color.ColorBright;
