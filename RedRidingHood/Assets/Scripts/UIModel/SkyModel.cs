@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SkyModel : EnvironmentModel
 {
-	private bool skyChanging = true;
+	private int skyChanging = 3;
 
 	public override EnvironmentColor SetColor()
 	{
@@ -13,16 +13,18 @@ public class SkyModel : EnvironmentModel
 
 	void OnMouseDown()
 	{
-		if (!skyChanging) {
-			skyChanging = true;
+		if (skyChanging == 0) {
 			Manager.ResetKeyWord(color.Keyword);
 			Manager.SetInterruptSentance (color.ChangeSentence);
+			skyChanging = 3;
 		}
 	}
 
 	public void Manager_OnClickSky(string keyValue, string word) 
-	{
-		skyChanging = false;
+	{	
+		if (skyChanging > 0) {
+				skyChanging--;
+		}
 	}
 }
 
