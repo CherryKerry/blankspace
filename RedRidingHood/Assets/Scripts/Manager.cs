@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Xml;
 using System;
+using System.IO;
 
 public class Manager : MonoBehaviour
 {
@@ -154,8 +155,10 @@ public class Manager : MonoBehaviour
 
 	private void LoadXml () 
 	{
-		string uri = Application.dataPath + "/Resources/LittleRedRidingHood.xml";
-		using (XmlReader reader = XmlReader.Create (uri)) {				
+		//string uri = Application.dataPath + "/Resources/LittleRedRidingHood.xml";
+		//using (XmlReader reader = XmlReader.Create (uri)) {
+		TextAsset xmlTextAsset = Resources.Load ("LittleRedRidingHood") as TextAsset;
+		using (XmlReader reader = XmlReader.Create (new StringReader(xmlTextAsset.text))) {	
 			Debug.Log("Started Parseing");
 			// Parse the file and display each of the nodes.
 			while (reader.ReadToFollowing ("sentence")) {
